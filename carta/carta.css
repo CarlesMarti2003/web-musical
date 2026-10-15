@@ -1,0 +1,233 @@
+/* Estilos exclusivos de la carta. Los colores vienen de ../styles.css. */
+:root {
+    --altura-cabecera: 0px;
+    --altura-selector: 0px;
+    --borde-carta: #dcd8cb;
+    --texto-secundario-carta: #5c655a;
+}
+
+/* Evita que los destinos de los enlaces queden debajo de las barras. */
+html {
+    scroll-padding-top: calc(var(--altura-cabecera) + var(--altura-selector) + 24px);
+}
+
+.introduccion-carta {
+    padding: 64px 24px 40px;
+    text-align: center;
+}
+
+.etiqueta-carta {
+    margin: 0 0 16px;
+    color: var(--texto-secundario-carta);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.introduccion-carta h1 {
+    max-width: none;
+    margin: 0 0 20px;
+    padding: 0;
+    font-family: Cambria, Georgia, serif;
+    font-size: clamp(40px, 6vw, 72px);
+}
+
+.introduccion-carta > p:last-child {
+    margin: 0;
+    color: var(--texto-secundario-carta);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Se pega justo debajo de la cabecera; JS mide su altura real. */
+.selector-carta {
+    position: sticky;
+    top: var(--altura-cabecera);
+    z-index: 20;
+    padding: 0 24px;
+    background-color: var(--color-fondo);
+    border-bottom: 1px solid var(--borde-carta);
+}
+
+.pestanas-carta {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* En móvil, las opciones se recorren horizontalmente sin ensanchar la web. */
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.pestana-carta {
+    position: relative;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    min-height: 72px;
+    padding: 16px 0;
+    color: var(--texto-secundario-carta);
+    font-family: Cambria, Georgia, serif;
+    font-size: 21px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.pestana-carta:hover,
+.pestana-carta[aria-selected="true"] {
+    color: #292929;
+}
+
+.pestana-carta[aria-selected="true"] {
+    font-weight: bold;
+}
+
+.pestana-carta[aria-selected="true"]::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 12px;
+    left: 0;
+    height: 2px;
+    background-color: var(--verde-principal);
+}
+
+.contenido-carta {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 56px 24px 100px;
+}
+
+.panel-carta {
+    min-width: 0;
+    margin-bottom: 48px;
+}
+
+/* hidden es la propiedad que utiliza JS para ocultar los otros cinco paneles. */
+.panel-carta[hidden] {
+    display: none;
+}
+
+.panel-carta h2 {
+    margin: 0 0 36px;
+    color: #292929;
+    font-size: clamp(24px, 4vw, 32px);
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.contenido-pendiente {
+    margin: 0;
+    padding: 32px 20px;
+    border: 1px solid var(--borde-carta);
+    color: var(--texto-secundario-carta);
+    line-height: 1.6;
+    text-align: center;
+}
+
+.categoria {
+    margin: 48px 0;
+}
+
+.categoria h3 {
+    margin: 0 0 28px;
+    color: var(--texto-secundario-carta);
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.lista-platos,
+.platos-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.plato {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--borde-carta);
+}
+
+.plato > div {
+    min-width: 0;
+}
+
+.plato h4 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    letter-spacing: 0.04em;
+    overflow-wrap: anywhere;
+}
+
+.plato p,
+.platos-menu li,
+.condiciones-menu {
+    margin: 0;
+    color: var(--texto-secundario-carta);
+    font-family: Cambria, Georgia, serif;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.precio {
+    flex-shrink: 0;
+    font-size: 18px;
+}
+
+.platos-menu li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--borde-carta);
+    text-align: center;
+}
+
+.condiciones-menu,
+.precio-menu {
+    text-align: center;
+}
+
+.precio-menu {
+    margin: 32px 0 0;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+@media (max-width: 1100px) {
+    .pestanas-carta {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 700px) {
+    .introduccion-carta {
+        padding: 40px 20px 28px;
+    }
+
+    .selector-carta {
+        padding: 0 16px;
+    }
+
+    .pestanas-carta {
+        gap: 24px;
+    }
+
+    .pestana-carta {
+        min-height: 60px;
+        font-size: 19px;
+    }
+
+    .contenido-carta {
+        padding: 36px 20px 64px;
+    }
+
+    .plato {
+        gap: 16px;
+    }
+}

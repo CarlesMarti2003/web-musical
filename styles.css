@@ -16,6 +16,10 @@ body{
 
 /*--- CONTENEDOR DE LA CABECERA ---*/
 .cabecera{
+    /* Permanece visible al desplazarse por cualquier página */
+    position: sticky;
+    top: 0;
+    z-index: 30;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,6 +48,8 @@ body{
 .cabecera nav a{
     color: #292929;
     text-decoration: none;
+    font-size: 20px;
+
 }
 
 .cabecera nav a:hover {
@@ -64,6 +70,60 @@ body{
 .boton-reserva:hover{
     background-color: #dddddd;
 }
+
+.presentacion{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px;
+    text-align: center;
+}
+
+.presentacion h1{
+    font-weight: bold;
+    font-size: clamp(42px, 7vw, 90px);
+    font-family: Cambria;
+    line-height: 1.1;
+    margin: 0 0 24px;
+}
+
+h1{
+    width: 100%;
+    max-width: 800px;
+    font-weight: bold;
+    font-size: clamp(42px, 7vw, 90px);
+    font-family: Cambria;
+    line-height: 1.1;
+    margin: 0 0 24px;
+    margin: 0 auto;
+    padding: 60px;
+    text-align: center;
+}
+
+.presentacion p{
+    font-size: 22px;
+    line-height: 1.6;
+    max-width: 60ch;
+    margin: 0 auto 24px;
+}
+
+.presentacion a{
+    color: #292929;
+    font-size: 22px;
+}
+
+.presentacion a:hover{
+    color: #eeeeee;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 700px) {

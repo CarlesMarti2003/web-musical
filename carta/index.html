@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta y menús | Restaurante El Musical</title>
+    <meta name="description" content="Consulta la carta, los vinos y los menús del restaurante El Musical en Foios.">
+
+    <!-- Primero los estilos comunes; después los de esta página -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="carta.css">
+    <script src="carta.js" defer></script>
+</head>
+
+<body>
+    <header class="cabecera">
+        <a class="nombre-restaurante" href="../index.html">El Musical</a>
+
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html#carta" aria-current="page">Carta</a></li>
+                <li><a href="../ubicacion/index.html">Ubicación</a></li>
+            </ul>
+        </nav>
+
+        <a class="boton-reserva" href="tel:+34000000000"> <!-- Teléfono pendiente -->
+            Reservar por teléfono
+        </a>
+    </header>
+
+    <main class="pagina-carta">
+        <div class="introduccion-carta">
+            <p class="etiqueta-carta">Restaurante El Musical · Foios</p>
+            <h1>Carta y menús</h1>
+            <p>Elige qué te apetece descubrir.</p>
+        </div>
+
+        <!-- Sin JavaScript, los enlaces permiten acceder a todos los apartados.
+             Con JavaScript, se convierten en pestañas y solo se muestra uno. -->
+        <nav class="selector-carta" aria-label="Cartas y menús">
+            <div class="pestanas-carta">
+                <a id="pestana-carta" class="pestana-carta" href="#carta">Carta</a>
+                <a id="pestana-carta-vinos" class="pestana-carta" href="#carta-vinos">Carta Vinos</a>
+                <a id="pestana-menu-diario" class="pestana-carta" href="#menu-diario">Menú diario</a>
+                <a id="pestana-menu-noche" class="pestana-carta" href="#menu-noche">Menú Noche</a>
+                <a id="pestana-menu-mediodia" class="pestana-carta" href="#menu-mediodia">Menú Mediodía</a>
+                <a id="pestana-menu-degustacion" class="pestana-carta" href="#menu-degustacion">Menú Degustación</a>
+            </div>
+        </nav>
+
+        <div class="contenido-carta">
+            <section id="carta" class="panel-carta carta" aria-labelledby="titulo-carta">
+                <h2 id="titulo-carta">Carta</h2>
+                <p class="contenido-pendiente">Carta pendiente de completar.</p>
+
+                <!-- PLANTILLA INCOMPLETA: mueve este bloque fuera del comentario
+                     y rellénalo con los datos reales. Repite la categoría y los
+                     platos según necesites; elimina el aviso anterior al terminar.
+                <section class="categoria">
+                    <h3></h3>
+                    <ul class="lista-platos">
+                        <li class="plato">
+                            <div>
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                            <span class="precio"></span>
+                        </li>
+                    </ul>
+                </section>
+                -->
+            </section>
+
+            <section id="carta-vinos" class="panel-carta vinos" aria-labelledby="titulo-vinos">
+                <h2 id="titulo-vinos">Carta Vinos</h2>
+                <p class="contenido-pendiente">Carta de vinos pendiente de completar.</p>
+
+                <!-- PLANTILLA INCOMPLETA: rellena y saca el bloque del comentario.
+                     h3: tipo de vino; h4: nombre; p: descripción; span: precio.
+                <section class="categoria">
+                    <h3></h3>
+                    <ul class="lista-platos">
+                        <li class="plato">
+                            <div>
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                            <span class="precio"></span>
+                        </li>
+                    </ul>
+                </section>
+                -->
+            </section>
+
+            <section id="menu-diario" class="panel-carta menus" aria-labelledby="titulo-diario">
+                <h2 id="titulo-diario">Menú diario</h2>
+                <p class="contenido-pendiente">Menú diario pendiente de completar.</p>
+
+                <!-- PLANTILLA INCOMPLETA: rellena los datos y saca el bloque
+                     del comentario. Repite el article para cada grupo de platos.
+                     No añadas precios ni condiciones sin confirmar.
+                <p class="condiciones-menu"></p>
+                <article class="menu categoria">
+                    <h3></h3>
+                    <ul class="platos-menu">
+                        <li></li>
+                    </ul>
+                </article>
+                <p class="precio-menu"></p>
+                -->
+            </section>
+
+            <section id="menu-noche" class="panel-carta menus" aria-labelledby="titulo-noche">
+                <h2 id="titulo-noche">Menú Noche</h2>
+                <p class="contenido-pendiente">Menú de noche pendiente de completar.</p>
+
+                <!-- PLANTILLA INCOMPLETA: condiciones, categoría, platos y precio.
+                     Rellena y mueve el bloque fuera del comentario.
+                <p class="condiciones-menu"></p>
+                <article class="menu categoria">
+                    <h3></h3>
+                    <ul class="platos-menu">
+                        <li></li>
+                    </ul>
+                </article>
+                <p class="precio-menu"></p>
+                -->
+            </section>
+
+            <section id="menu-mediodia" class="panel-carta menus" aria-labelledby="titulo-mediodia">
+                <h2 id="titulo-mediodia">Menú Mediodía</h2>
+                <p class="contenido-pendiente">Menú de mediodía pendiente de completar.</p>
+
+                <!-- PLANTILLA INCOMPLETA: condiciones, categoría, platos y precio.
+                     Rellena y mueve el bloque fuera del comentario.
+                <p class="condiciones-menu"></p>
+                <article class="menu categoria">
+                    <h3></h3>
+                    <ul class="platos-menu">
+                        <li></li>
+                    </ul>
+                </article>
+                <p class="precio-menu"></p>
+                -->
+            </section>
+
+            <section id="menu-degustacion" class="panel-carta menus" aria-labelledby="titulo-degustacion">
+                <h2 id="titulo-degustacion">Menú Degustación</h2>
+                <p class="contenido-pendiente">Menú degustación pendiente de completar.</p>
+
+                <!-- PLANTILLA INCOMPLETA: condiciones, platos en orden y precio.
+                     Rellena y mueve el bloque fuera del comentario.
+                <p class="condiciones-menu"></p>
+                <ol class="platos-menu">
+                    <li></li>
+                </ol>
+                <p class="precio-menu"></p>
+                -->
+            </section>
+        </div>
+    </main>
+</body>
+</html>
