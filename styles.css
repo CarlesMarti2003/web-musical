@@ -1,0 +1,75 @@
+:root{
+    --verde-principal: #2d9759;
+    --color-fondo: #fffaf3;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px 0px 16px 0px;
+    font-family: Arial, sans-serif;
+    color: #292929;
+    background-color: var(--color-fondo);
+}
+
+/*--- CONTENEDOR DE LA CABECERA ---*/
+.cabecera{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 32px;
+    background-color: var(--verde-principal);
+}
+
+.nombre-restaurante {
+    font-size: 26px;
+    font-weight: bold;
+    color: #292929;
+    text-decoration: none; /* Elimina el subrallado del enlace */
+}
+
+.cabecera nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cabecera nav a{
+    color: #292929;
+    text-decoration: none;
+}
+
+.cabecera nav a:hover {
+    color: #eeeeee;
+    text-decoration: underline;
+}
+
+.boton-reserva {
+    display: inline-block;
+    padding: 12px;
+    border-radius: 6px;
+    background-color: #eeeeee;
+    color: var(--verde-principal);
+    text-align: center;
+    text-decoration: none;
+}
+
+.boton-reserva:hover{
+    background-color: #dddddd;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 700px) {
+    .cabecera {
+        flex-direction: column;
+        padding: 20px 16px;
+        gap: 20px;
+    }
+}
