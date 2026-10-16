@@ -112,3 +112,9 @@ pestanas.forEach((pestana, indice) => {
 window.addEventListener('hashchange', () => seleccionarPanel(obtenerDestino()));
 window.addEventListener('popstate', () => seleccionarPanel(obtenerDestino()));
 seleccionarPanel(obtenerDestino());
+
+// Vuelve al principio con animación sin cambiar la pestaña seleccionada.
+const botonVolverArriba = document.querySelector('.volver-arriba');
+botonVolverArriba.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});

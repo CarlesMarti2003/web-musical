@@ -1,137 +1,344 @@
-/* Estilos exclusivos de la carta. Los colores vienen de ../styles.css. */
+/* :root permite definir variables disponibles en toda la página. */
 :root {
+    /* JavaScript sustituye estos valores por las alturas reales. */
     --altura-cabecera: 0px;
     --altura-selector: 0px;
+
+    /* Colores propios de la carta, reutilizados más abajo. */
     --borde-carta: #dcd8cb;
     --texto-secundario-carta: #5c655a;
+
+    /* --color-fondo y --verde-principal ya están en styles.css. */
 }
 
-/* Evita que los destinos de los enlaces queden debajo de las barras. */
+/* html es el elemento que contiene toda la página. */
 html {
-    scroll-padding-top: calc(var(--altura-cabecera) + var(--altura-selector) + 24px);
+    /*
+       Reserva espacio arriba cuando el navegador desplaza la página
+       hacia un destino, como un enlace #menu-bocatas.
+
+       Evita que ese destino quede tapado por las dos barras.
+       No añade espacio visible al diseño.
+
+       calc() permite calcular una medida.
+       Aquí suma las dos alturas y 24px adicionales.
+    */
+    scroll-padding-top: calc(
+        var(--altura-cabecera) + var(--altura-selector) + 24px
+    );
 }
+
+
+/* INTRODUCCIÓN: título y textos anteriores al selector. */
 
 .introduccion-carta {
+    /* Tres valores: arriba, laterales, abajo. */
     padding: 64px 24px 40px;
+
+    /* Centra horizontalmente el texto. */
     text-align: center;
 }
 
 .etiqueta-carta {
+    /* Texto pequeño: "Restaurante El Musical · Foios". */
+
+    /* Arriba: 0; laterales: 0; abajo: 16px. */
     margin: 0 0 16px;
+
+    /* Recupera el color definido en :root. */
     color: var(--texto-secundario-carta);
+
+    /* Tamaño de las letras. */
     font-size: 13px;
+
+    /*
+       Separación adicional entre letras.
+       em es una unidad relativa al tamaño de la fuente.
+    */
     letter-spacing: 0.14em;
+
+    /* Muestra el texto en mayúsculas sin cambiar el HTML. */
     text-transform: uppercase;
 }
 
 .introduccion-carta h1 {
+    /* Selecciona el h1 que está dentro de la introducción. */
+
+    /* Elimina el límite de ancho que heredaba de otra regla h1. */
     max-width: none;
+
+    /* Deja 20px debajo del título. */
     margin: 0 0 20px;
+
+    /* Elimina el espacio interior definido por otra regla h1. */
     padding: 0;
+
+    /* Usa la primera fuente disponible de esta lista. */
     font-family: Cambria, Georgia, serif;
+
+    /*
+       Tamaño adaptable:
+       mínimo 40px, preferido 6vw, máximo 72px.
+       1vw equivale al 1% del ancho de la ventana.
+    */
     font-size: clamp(40px, 6vw, 72px);
 }
 
+/*
+   > selecciona hijos directos.
+   :last-child exige que sea el último elemento hijo.
+
+   En este HTML selecciona el párrafo:
+   "Elige qué te apetece descubrir."
+*/
 .introduccion-carta > p:last-child {
+    /* Elimina el margen predeterminado del párrafo. */
     margin: 0;
+
     color: var(--texto-secundario-carta);
     font-size: 18px;
+
+    /* Altura de cada línea: 1,5 veces el tamaño de la fuente. */
     line-height: 1.5;
 }
 
-/* Se pega justo debajo de la cabecera; JS mide su altura real. */
+
+/* SELECTOR: barra que contiene las seis opciones. */
+
 .selector-carta {
+    /*
+       Se desplaza con la página hasta alcanzar el límite top.
+       Después permanece pegada ahí mientras su contenedor lo permita.
+    */
     position: sticky;
+
+    /* Su límite superior queda justo debajo de la cabecera. */
     top: var(--altura-cabecera);
+
+    /*
+       Orden de superposición.
+       Queda encima del contenido, pero debajo de la cabecera,
+       que tiene z-index: 30 en styles.css.
+    */
     z-index: 20;
+
+    /* Sin relleno vertical y con 24px a cada lado. */
     padding: 0 24px;
+
+    /* Fondo opaco para que no se vea el contenido pasando por detrás. */
     background-color: var(--color-fondo);
+
+    /* Línea inferior: grosor, tipo y color. */
     border-bottom: 1px solid var(--borde-carta);
 }
 
+
+/* Contenedor de los enlaces Carta, Carta Vinos, etc. */
 .pestanas-carta {
+    /* Coloca los enlaces en una fila. */
     display: flex;
+
+    /* Estira los enlaces verticalmente para igualar sus cajas. */
     align-items: stretch;
+
+    /* Centra el conjunto de enlaces horizontalmente. */
     justify-content: center;
+
+    /* Separación entre opciones. */
     gap: 28px;
+
+    /* El contenedor no superará este ancho. */
     max-width: 1200px;
+
+    /* Centra el contenedor con márgenes laterales automáticos. */
     margin: 0 auto;
-    /* En móvil, las opciones se recorren horizontalmente sin ensanchar la web. */
+
+    /*
+       Si las opciones no caben, permite desplazamiento horizontal
+       dentro de esta barra, sin ensanchar toda la página.
+    */
     overflow-x: auto;
+
+    /*
+       Solicita una barra de desplazamiento fina.
+       Su apariencia también depende del navegador y del sistema.
+    */
     scrollbar-width: thin;
 }
 
+
+/* Cada uno de los seis enlaces. */
 .pestana-carta {
+    /*
+       Sirve como referencia para colocar la línea decorativa
+       que añadimos después con ::after.
+       Por sí solo no desplaza el enlace.
+    */
     position: relative;
+
+    /*
+       Abreviatura de tres propiedades flex:
+       0: no crece para ocupar espacio sobrante.
+       0: no se encoge cuando falta espacio.
+       auto: su tamaño base depende del contenido y sus dimensiones.
+    */
     flex: 0 0 auto;
+
+    /* Permite alinear el texto dentro de la caja del enlace. */
     display: flex;
+
+    /* Centra el texto verticalmente. */
     align-items: center;
+
+    /* Altura mínima; puede aumentar si el contenido lo necesita. */
     min-height: 72px;
+
+    /* Relleno vertical de 16px y horizontal de 0. */
     padding: 16px 0;
+
     color: var(--texto-secundario-carta);
     font-family: Cambria, Georgia, serif;
     font-size: 21px;
+
+    /* Elimina el subrayado habitual de los enlaces. */
     text-decoration: none;
+
+    /* Evita que "Menú Degustación", por ejemplo, se divida en dos líneas. */
     white-space: nowrap;
 }
 
+/*
+   La coma aplica la misma regla a dos situaciones:
+   - el ratón está encima del enlace;
+   - el enlace tiene aria-selected="true", añadido por JavaScript.
+*/
 .pestana-carta:hover,
 .pestana-carta[aria-selected="true"] {
     color: #292929;
 }
 
+/* Solo la opción seleccionada aparece en negrita. */
 .pestana-carta[aria-selected="true"] {
     font-weight: bold;
 }
 
+/*
+   ::after crea una pieza decorativa al final del elemento.
+   Aquí la utilizamos para dibujar una línea bajo la opción activa.
+*/
 .pestana-carta[aria-selected="true"]::after {
+    /* Necesario para generar esa pieza, aunque no contenga texto. */
     content: "";
+
+    /* La coloca respecto al enlace, que tiene position: relative. */
     position: absolute;
+
+    /* Hace que abarque desde el extremo izquierdo hasta el derecho. */
     right: 0;
-    bottom: 12px;
     left: 0;
+
+    /* La sitúa a 12px del borde inferior del enlace. */
+    bottom: 12px;
+
+    /* Grosor de la línea. */
     height: 2px;
+
+    /* Color de la línea. */
     background-color: var(--verde-principal);
 }
 
+
+/* CONTENIDO: zona situada debajo del selector. */
+
 .contenido-carta {
+    /* Limita el ancho para que el contenido no ocupe toda la pantalla. */
     max-width: 1000px;
+
+    /* Centra el bloque horizontalmente. */
     margin: 0 auto;
+
+    /* Arriba: 56px; laterales: 24px; abajo: 100px. */
     padding: 56px 24px 100px;
 }
 
+/* Cada bloque de contenido: carta, vinos o uno de los menús. */
 .panel-carta {
+    /*
+       Permite un ancho mínimo de cero.
+       Es especialmente útil si el bloque se coloca en flex o grid;
+       en la estructura actual no suele producir un cambio visible.
+    */
     min-width: 0;
+
+    /* Espacio exterior debajo del panel. */
     margin-bottom: 48px;
 }
 
-/* hidden es la propiedad que utiliza JS para ocultar los otros cinco paneles. */
+/*
+   [hidden] selecciona los paneles que tienen ese atributo.
+   JavaScript lo activa en los cinco paneles no seleccionados.
+*/
 .panel-carta[hidden] {
+    /* Oculta el panel y elimina el espacio que ocuparía. */
     display: none;
 }
 
+/* Título del panel: Carta, Menú Bocatas, etc. */
 .panel-carta h2 {
     margin: 0 0 36px;
     color: #292929;
+
+    /* Misma familia de letras que el H1 y las pestañas de la carta. */
+    font-family: Cambria, Georgia, serif;
+
+    /* Mínimo 24px, tamaño adaptable 4vw, máximo 32px. */
     font-size: clamp(24px, 4vw, 32px);
+
     letter-spacing: 0.08em;
     text-align: center;
     text-transform: uppercase;
 }
 
+
+/* Descripción de cada carta o menú, y avisos de contenido pendiente. */
+.descripcion-carta,
 .contenido-pendiente {
     margin: 0;
+
+    /* Relleno vertical y horizontal. */
     padding: 32px 20px;
+
+    /* Dibuja el borde completo de la caja. */
     border: 1px solid var(--borde-carta);
-    color: var(--texto-secundario-carta);
+
+    /* Negro para las descripciones; los títulos y las pestañas mantienen su estilo. */
+    color: #000000;
+    font-size: 20px;
     line-height: 1.6;
     text-align: center;
 }
 
+/* La introducción de cada carta utiliza también la fuente del H1. */
+.descripcion-carta {
+    font-family: Cambria, Georgia, serif;
+}
+
+
+/* CATEGORÍAS Y PLATOS.
+   Estos estilos se verán al rellenar las plantillas del HTML. */
+
 .categoria {
+    /* Espacio exterior arriba y abajo; ninguno a los lados. */
     margin: 48px 0;
 }
 
+/* + selecciona una categoría situada justo después de otra.
+   Separa el nuevo título de la línea del último plato anterior. */
+.categoria + .categoria {
+    margin-top: 64px;
+}
+
+/* Nombre de categoría, por ejemplo: Entrantes. */
 .categoria h3 {
     margin: 0 0 28px;
     color: var(--texto-secundario-carta);
@@ -141,32 +348,78 @@ html {
     text-transform: uppercase;
 }
 
+/* Disponibilidad de hamburguesas, bocadillos y arroces. */
+.disponibilidad-categoria {
+    margin: -12px 0 28px;
+    color: #000000;
+    font-family: Cambria, Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Aplica estos ajustes a las dos clases de listas. */
 .lista-platos,
 .platos-menu {
+    /* Elimina los espacios predeterminados de las listas. */
     margin: 0;
     padding: 0;
+
+    /* Elimina sus viñetas o números visibles. */
     list-style: none;
 }
 
+/* Fila de un plato: nombre y descripción a un lado, precio al otro. */
 .plato {
     display: flex;
+
+    /* Reparte el espacio sobrante entre el texto y el precio. */
     justify-content: space-between;
+
+    /* Separación mínima entre ambos. */
     gap: 24px;
+
+    /* Relleno vertical; ninguno horizontal. */
     padding: 24px 0;
+
+    /* Línea que separa un plato del siguiente. */
     border-bottom: 1px solid var(--borde-carta);
 }
 
+/* Selecciona únicamente los div que son hijos directos de .plato. */
 .plato > div {
+    /*
+       Permite que el bloque de texto se estreche dentro de flex,
+       en lugar de obligar al conjunto a desbordarse.
+    */
     min-width: 0;
 }
 
+/* Nombre del plato. */
 .plato h4 {
     margin: 0 0 8px;
     font-size: 17px;
-    letter-spacing: 0.04em;
+
+    /* Mismo estilo que CARTA y UBICACIÓN en la navegación superior.
+       Conservamos 17px para que los nombres de los platos sean legibles. */
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    /*
+       Si una palabra es demasiado larga para caber,
+       permite partirla para evitar que sobresalga.
+    */
     overflow-wrap: anywhere;
 }
 
+/*
+   Estilo compartido por:
+   - descripciones de platos;
+   - elementos de los menús;
+   - condiciones de disponibilidad de los menús.
+*/
 .plato p,
 .platos-menu li,
 .condiciones-menu {
@@ -177,57 +430,109 @@ html {
     line-height: 1.6;
 }
 
+/* Las descripciones de los platos también se muestran en negro. */
+.plato p {
+    color: #000000;
+}
+
+/* Precio de cada plato o vino. */
 .precio {
+    /* Evita que flex comprima la caja del precio cuando falta espacio. */
     flex-shrink: 0;
+
     font-size: 18px;
 }
 
+/* Cada opción dentro de un menú. */
 .platos-menu li {
     padding: 16px 0;
     border-bottom: 1px solid var(--borde-carta);
     text-align: center;
 }
 
+/* Centra tanto las condiciones como el precio general del menú. */
 .condiciones-menu,
 .precio-menu {
     text-align: center;
 }
 
 .precio-menu {
+    /* Deja 32px de separación arriba. */
     margin: 32px 0 0;
+
     font-size: 26px;
     font-weight: bold;
 }
 
+
+/* Botón centrado al final de la carta o del menú seleccionado. */
+.pie-carta {
+    margin-top: 48px;
+    text-align: center;
+}
+
+.volver-arriba {
+    /* Usa la misma tipografía que el resto de la página. */
+    font: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border: 1px solid var(--verde-principal);
+    border-radius: 6px;
+    background-color: var(--color-fondo);
+    color: #292929;
+    cursor: pointer;
+}
+
+.volver-arriba:hover {
+    background-color: var(--verde-principal);
+    color: #ffffff;
+}
+
+/* ADAPTACIÓN A PANTALLAS MÁS ESTRECHAS. */
+
+/* Se aplica cuando la ventana mide 1100px de ancho o menos. */
 @media (max-width: 1100px) {
     .pestanas-carta {
+        /*
+           Alinea las opciones desde la izquierda.
+           Así se puede recorrer la lista horizontal desde su inicio.
+        */
         justify-content: flex-start;
     }
 }
 
+/* Se aplica cuando la ventana mide 700px de ancho o menos. */
 @media (max-width: 700px) {
     .introduccion-carta {
+        /* Reduce el espacio interior de la introducción. */
         padding: 40px 20px 28px;
     }
 
     .selector-carta {
+        /* Reduce el relleno lateral de la barra. */
         padding: 0 16px;
     }
 
     .pestanas-carta {
+        /* Reduce la separación entre opciones. */
         gap: 24px;
     }
 
     .pestana-carta {
+        /* Hace las opciones menos altas y su texto más pequeño. */
         min-height: 60px;
         font-size: 19px;
     }
 
     .contenido-carta {
+        /* Reduce los espacios alrededor del contenido. */
         padding: 36px 20px 64px;
     }
 
     .plato {
+        /* Reduce la separación entre descripción y precio. */
         gap: 16px;
     }
 }
