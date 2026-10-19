@@ -4,11 +4,6 @@
     --altura-cabecera: 0px;
     --altura-selector: 0px;
 
-    /* Colores propios de la carta, reutilizados más abajo. */
-    --borde-carta: var(--color-borde);
-    --texto-secundario-carta: var(--texto-secundario);
-
-    /* --color-fondo y --verde-principal ya están en styles.css. */
 }
 
 /* html es el elemento que contiene toda la página. */
@@ -28,7 +23,6 @@ html {
     );
 }
 
-
 /* INTRODUCCIÓN: título y textos anteriores al selector. */
 
 .introduccion-carta {
@@ -46,7 +40,7 @@ html {
     margin: 0 0 16px;
 
     /* Recupera el color definido en :root. */
-    color: var(--texto-secundario-carta);
+    color: var(--texto-secundario);
 
     /* Tamaño de las letras. */
     font-size: 13px;
@@ -64,17 +58,8 @@ html {
 .introduccion-carta h1 {
     /* Selecciona el h1 que está dentro de la introducción. */
 
-    /* Elimina el límite de ancho que heredaba de otra regla h1. */
-    max-width: none;
-
     /* Deja 20px debajo del título. */
     margin: 0 0 20px;
-
-    /* Elimina el espacio interior definido por otra regla h1. */
-    padding: 0;
-
-    /* La misma fuente de títulos que en el resto de la web. */
-    font-family: var(--fuente-titulos);
 
     /*
        Tamaño adaptable:
@@ -95,13 +80,12 @@ html {
     /* Elimina el margen predeterminado del párrafo. */
     margin: 0;
 
-    color: var(--texto-secundario-carta);
+    color: var(--texto-secundario);
     font-size: 18px;
 
     /* Altura de cada línea: 1,5 veces el tamaño de la fuente. */
     line-height: 1.5;
 }
-
 
 /* SELECTOR: barra que contiene las seis opciones. */
 
@@ -129,9 +113,8 @@ html {
     background-color: var(--color-fondo);
 
     /* Línea inferior: grosor, tipo y color. */
-    border-bottom: 1px solid var(--borde-carta);
+    border-bottom: 1px solid var(--color-borde);
 }
-
 
 /* Contenedor de los enlaces Carta, Carta Vinos, etc. */
 .pestanas-carta {
@@ -166,7 +149,6 @@ html {
     scrollbar-width: thin;
 }
 
-
 /* Cada uno de los seis enlaces. */
 .pestana-carta {
     /*
@@ -196,7 +178,7 @@ html {
     /* Relleno vertical de 16px y horizontal de 0. */
     padding: 16px 0;
 
-    color: var(--texto-secundario-carta);
+    color: var(--texto-secundario);
     font-family: var(--fuente-titulos);
     font-size: 20px;
 
@@ -250,7 +232,6 @@ html {
     background-color: var(--verde-principal);
 }
 
-
 /* CONTENIDO: zona situada debajo del selector. */
 
 .contenido-carta {
@@ -291,28 +272,22 @@ html {
     margin: 0 0 36px;
     color: #292929;
 
-    /* Misma familia de letras que el H1 y las pestañas de la carta. */
-    font-family: var(--fuente-titulos);
-
     /* Mínimo 24px, tamaño adaptable 4vw, máximo 32px. */
     font-size: clamp(24px, 4vw, 32px);
 
     letter-spacing: 0.12em;
     text-align: center;
-    text-transform: uppercase;
 }
 
-
-/* Descripción de cada carta o menú, y avisos de contenido pendiente. */
-.descripcion-carta,
-.contenido-pendiente {
+/* Descripción de cada carta o menú. */
+.descripcion-carta {
     margin: 0;
 
     /* Relleno vertical y horizontal. */
     padding: 32px 20px;
 
     /* Dibuja el borde completo de la caja. */
-    border: 1px solid var(--borde-carta);
+    border: 1px solid var(--color-borde);
 
     /* Negro para las descripciones; los títulos y las pestañas mantienen su estilo. */
     color: #000000;
@@ -321,14 +296,7 @@ html {
     text-align: center;
 }
 
-/* Textos largos: la segunda fuente, compartida con las descripciones. */
-.descripcion-carta {
-    font-family: var(--fuente-texto);
-}
-
-
-/* CATEGORÍAS Y PLATOS.
-   Estos estilos se verán al rellenar las plantillas del HTML. */
+/* Categorías y platos de la carta. */
 
 .categoria {
     /* Espacio exterior arriba y abajo; ninguno a los lados. */
@@ -344,12 +312,10 @@ html {
 /* Nombre de categoría, por ejemplo: Entrantes. */
 .categoria h3 {
     margin: 0 0 28px;
-    color: var(--texto-secundario-carta);
+    color: var(--texto-secundario);
     font-size: 21px;
     letter-spacing: 0.12em;
     text-align: center;
-    text-transform: uppercase;
-    font-family: var(--fuente-titulos);
     font-weight: 500;
 }
 
@@ -357,7 +323,6 @@ html {
 .disponibilidad-categoria {
     margin: -12px 0 28px;
     color: #000000;
-    font-family: var(--fuente-texto);
     font-size: 18px;
     font-style: italic;
     text-align: center;
@@ -388,7 +353,7 @@ html {
     padding: 24px 0;
 
     /* Línea que separa un plato del siguiente. */
-    border-bottom: 1px solid var(--borde-carta);
+    border-bottom: 1px solid var(--color-borde);
 }
 
 /* Selecciona únicamente los div que son hijos directos de .plato. */
@@ -405,11 +370,7 @@ html {
     margin: 0 0 8px;
     font-size: 19px;
 
-    /* Misma fuente estrecha que la navegación; 19px para los nombres de platos. */
-    font-family: var(--fuente-titulos);
     font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
 
     /*
        Si una palabra es demasiado larga para caber,
@@ -428,22 +389,14 @@ html {
 .platos-menu li,
 .condiciones-menu {
     margin: 0;
-    color: var(--texto-secundario-carta);
-    font-family: var(--fuente-texto);
-    font-size: 20px;
-    line-height: 1.6;
-}
-
-/* Las descripciones de los platos también se muestran en negro. */
-.plato p {
     color: #000000;
+    font-size: 20px;
 }
 
 /* Datos específicos de cada vino. Se conserva el diseño de nombres y precios
    de los platos; estas reglas separan origen, nota de cata y variedades. */
 .vino .origen-vino {
     margin: 4px 0 12px;
-    font-family: var(--fuente-texto);
     font-size: 14px;
     letter-spacing: 0.04em;
 }
@@ -460,31 +413,15 @@ html {
     flex-shrink: 0;
 
     font-size: 18px;
-    font-family: var(--fuente-texto);
     font-weight: 600;
 }
 
 /* Cada opción dentro de un menú. */
 .platos-menu li {
     padding: 16px 0;
-    border-bottom: 1px solid var(--borde-carta);
+    border-bottom: 1px solid var(--color-borde);
     text-align: center;
 }
-
-/* Centra tanto las condiciones como el precio general del menú. */
-.condiciones-menu,
-.precio-menu {
-    text-align: center;
-}
-
-.precio-menu {
-    /* Deja 32px de separación arriba. */
-    margin: 32px 0 0;
-
-    font-size: 26px;
-    font-weight: bold;
-}
-
 
 /* Precios inmediatamente después de la descripción.
    flex-wrap permite que las dos modalidades pasen a otra fila en móvil. */
@@ -496,10 +433,13 @@ html {
     margin: 24px 0 16px;
 }
 
-.precios-menu .precio-menu {
+.precio-menu {
     margin: 0;
     font-family: var(--fuente-titulos);
+    font-size: 26px;
+    font-weight: bold;
     line-height: 1.4;
+    text-align: center;
 }
 
 /* p/p significa precio por persona. */
@@ -509,8 +449,8 @@ html {
 }
 
 .modalidad-precio {
-    display: block;
     font-family: var(--fuente-texto);
+    display: block;
     font-size: 15px;
     font-weight: normal;
 }
@@ -519,19 +459,14 @@ html {
 .opciones-menu {
     margin: 0 0 32px;
     color: #000000;
-    font-family: var(--fuente-texto);
     font-size: 19px;
     line-height: 1.6;
     text-align: center;
 }
 
 .menus .condiciones-menu {
+    text-align: center;
     margin: 0 0 16px;
-    color: #000000;
-}
-
-.menus .platos-menu li {
-    color: #000000;
 }
 
 /* El suplemento se muestra junto al plato y puede pasar a otra línea. */
@@ -547,8 +482,6 @@ html {
 }
 
 .volver-arriba {
-    /* Usa la misma tipografía que el resto de la página. */
-    font: inherit;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -601,14 +534,9 @@ html {
     }
 
     .pestana-carta {
-        /* Hace las opciones menos altas y su texto más pequeño. */
+        /* Reduce la altura; la tipografía ya viene de la regla general. */
         min-height: 60px;
-        font-size: 20px;
-    font-family: var(--fuente-titulos);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
+    }
 
     .contenido-carta {
         /* Reduce los espacios alrededor del contenido. */
@@ -619,4 +547,11 @@ html {
         /* Reduce la separación entre descripción y precio. */
         gap: 16px;
     }
+}
+
+/* Con ratón no hace falta un recuadro; con teclado conservamos una señal clara. */
+.pestana-carta:focus:not(:focus-visible) { outline: none; }
+.pestana-carta:focus-visible {
+    outline: 2px solid var(--verde-oscuro);
+    outline-offset: -3px;
 }

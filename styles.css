@@ -54,7 +54,7 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
 }
 
-button, input, select, textarea {
+button {
     font: inherit;
 }
 
@@ -64,22 +64,20 @@ button, input, select, textarea {
     position: sticky;
     top: 0;
     z-index: 30;
-    display: flex;
+    /* Laterales iguales: el menú queda centrado en la pantalla. */
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
     gap: 20px;
     padding: 20px 32px;
     background-color: var(--verde-principal);
 }
 
+.cabecera > .boton-reserva { justify-self: end; }
+
 .nombre-restaurante {
-    font-size: 30px;
-    font-weight: 600;
-    color: #292929;
-    text-decoration: none; /* Elimina el subrallado del enlace */
-    font-family: var(--fuente-titulos);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    display: inline-flex;
+    justify-self: start;
 }
 
 .cabecera nav ul {
@@ -134,31 +132,17 @@ button, input, select, textarea {
     text-align: center;
 }
 
-.presentacion h1{
-    /* El espacio lo controla la presentación, sin duplicar el relleno del h1. */
-    padding: 0;
-    font-weight: 600;
-    font-size: clamp(42px, 7vw, 90px);
-    font-family: var(--fuente-titulos);
-    line-height: 1.15;
-    margin: 0 0 24px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+.presentacion h1 {
+    margin-bottom: 24px;
 }
 
-h1{
+/* Los títulos de cada página solo ajustan el tamaño y el margen. */
+h1 {
     width: 100%;
-    max-width: 800px;
-    font-weight: 600;
     font-size: clamp(42px, 7vw, 90px);
-    font-family: var(--fuente-titulos);
     line-height: 1.15;
-    margin: 0 0 24px;
-    margin: 0 auto;
-    padding: 60px;
+    margin: 0;
     text-align: center;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
 }
 
 .presentacion p{
@@ -182,32 +166,10 @@ h1{
     text-decoration: underline;
 }
 
-
-
-
-
-
-
-
-
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 700px) {
-    .presentacion {
-        padding: 40px 20px;
-    }
-
-    .cabecera {
-        flex-direction: column;
-        padding: 20px 16px;
-        gap: 20px;
-    }
-}
-
 /* El contenido crece para que el pie llegue al final en páginas cortas. */
 body > main { flex: 1; }
 
 /* Logo con tamaño reservado: no salta la cabecera al cargar la imagen. */
-.nombre-restaurante { display: inline-flex; flex-shrink: 0; }
 .logo-restaurante {
     display: block;
     width: 76px;
@@ -253,7 +215,17 @@ body > main { flex: 1; }
     border-top: 1px solid var(--color-borde);
     font-size: 15px;
 }
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 700px) {
+    .presentacion {
+        padding: 40px 20px;
+    }
+
+    .cabecera {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 16px;
+    }
     .contenido-pie { grid-template-columns: minmax(0, 1fr); gap: 28px; }
     .pie-web { padding: 36px 20px 20px; }
     .logo-restaurante { width: 64px; height: 64px; }
