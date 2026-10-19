@@ -1,0 +1,180 @@
+/* Estilos exclusivos de Ubicación; colores y cabecera vienen de styles.css. */
+.pagina-ubicacion {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 64px 32px 40px;
+}
+
+.introduccion-ubicacion {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+/* Mismo tratamiento de letras que las etiquetas de la carta. */
+.etiqueta-ubicacion {
+    margin: 0 0 16px;
+    color: #405847;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 0.14em;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+.introduccion-ubicacion h1 {
+    /* Ajusta la regla h1 compartida para esta introducción. */
+    max-width: none;
+    margin: 0 0 20px;
+    padding: 0;
+    font-family: Cambria, Georgia, serif;
+    font-size: clamp(42px, 6vw, 72px);
+}
+
+.introduccion-ubicacion > p:last-child {
+    max-width: 48ch;
+    margin: 0 auto;
+    font-family: Cambria, Georgia, serif;
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+/* Dos columnas: más espacio para el mapa y una ficha lateral de dirección. */
+.encuentranos {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    overflow: hidden;
+    border: 1px solid #dcd8cb;
+    border-radius: 18px;
+    background-color: #ffffff;
+    box-shadow: 0 16px 40px rgb(35 61 43 / 8%);
+}
+
+.tarjeta-mapa {
+    min-width: 0;
+    min-height: 480px;
+    background-color: #e8ede4;
+}
+
+.tarjeta-mapa iframe {
+    /* El mapa se adapta a su columna, aunque tenga dimensiones en el HTML. */
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    border: 0;
+}
+
+.datos-ubicacion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    padding: 44px 36px;
+}
+
+.icono-ubicacion {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 28px;
+    border-radius: 50%;
+    background-color: #edf4eb;
+    color: #285d3d;
+}
+
+.icono-ubicacion svg {
+    width: 26px;
+    height: 26px;
+}
+
+.datos-ubicacion h2 {
+    margin: 0 0 20px;
+    font-family: Cambria, Georgia, serif;
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.datos-ubicacion address {
+    margin-bottom: 28px;
+    font-family: Cambria, Georgia, serif;
+    font-size: 21px;
+    /* address usa cursiva por defecto; aquí mostramos letra normal. */
+    font-style: normal;
+    line-height: 1.6;
+}
+
+/* Los dos botones comparten aspecto: cualquier ajuste se hace una sola vez. */
+.boton-ruta,
+.boton-reseña {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    max-width: 100%;
+    padding: 15px 22px;
+    border-radius: 6px;
+    background-color: var(--verde-principal);
+    color: #10291b;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.boton-ruta:hover,
+.boton-reseña:hover {
+    background-color: #267e4a;
+    color: #ffffff;
+}
+
+.reseña {
+    margin-bottom: 48px;
+    text-align: center;
+    padding: 20px;
+}
+
+.enlace-mapa {
+    margin-top: 20px;
+    color: #365441;
+    font-size: 14px;
+    line-height: 1.5;
+    text-underline-offset: 4px;
+}
+
+.enlace-mapa:hover {
+    color: #111111;
+}
+
+.cierre-ubicacion {
+    margin: 32px 0 0;
+    color: #405847;
+    font-family: Cambria, Georgia, serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* En pantallas pequeñas, primero la dirección y después el mapa. */
+@media (max-width: 800px) {
+    .pagina-ubicacion {
+        padding: 40px 20px 32px;
+    }
+
+    .introduccion-ubicacion {
+        margin-bottom: 32px;
+    }
+
+    .encuentranos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .datos-ubicacion {
+        order: -1;
+        padding: 32px 24px;
+    }
+
+    .tarjeta-mapa,
+    .tarjeta-mapa iframe {
+        min-height: 360px;
+    }
+}

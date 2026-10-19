@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicación | Restaurante El Musical en Foios</title>
+    <meta name="description" content="Encuentra el restaurante El Musical en Carrer Antonio Sorlí, 6, Foios. Consulta el mapa y cómo llegar.">
+
+    <!-- Estilos compartidos y, después, los específicos de esta página. -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="ubicacion.css">
+</head>
+
+<body>
+    <header class="cabecera">
+        <a class="nombre-restaurante" href="../index.html">El Musical</a>
+
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="../carta/index.html#carta">Carta</a></li>
+                <li><a href="index.html" aria-current="page">Ubicación</a></li>
+            </ul>
+        </nav>
+
+        <a class="boton-reserva" href="tel:+34000000000"> <!-- Teléfono pendiente, como en las demás páginas. -->
+            Reservar por teléfono
+        </a>
+    </header>
+
+    <main class="pagina-ubicacion">
+        <div class="introduccion-ubicacion">
+            <p class="etiqueta-ubicacion">Restaurante El Musical · Foios</p>
+            <h1>Ven a visitarnos</h1>
+            <p>Buena comida, buena compañía y un lugar donde encontrarnos.</p>
+        </div>
+
+        <div class="encuentranos">
+            <section class="tarjeta-mapa" aria-label="Mapa del restaurante">
+                <!-- Mapa interactivo de Google Maps. La búsqueda incluye el nombre
+                     y la dirección completa para identificar el local. -->
+                <iframe
+                    title="Ubicación del Restaurante El Musical en Foios"
+                    src="https://www.google.com/maps?q=Restaurante%20El%20Musical%2C%20Carrer%20Antonio%20Sorl%C3%AD%206%2C%2046134%20Foios%2C%20Valencia&amp;z=16&amp;hl=es&amp;output=embed"
+                    width="800"
+                    height="520"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen>
+                </iframe>
+            </section>
+
+            <section class="datos-ubicacion" aria-labelledby="nombre-local">
+                <!-- Icono decorativo: el texto de la dirección ya aporta la información. -->
+                <div class="icono-ubicacion" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+                        <circle cx="12" cy="10" r="2.5"/>
+                    </svg>
+                </div>
+
+                <p class="etiqueta-ubicacion">Aquí nos encontrarás</p>
+                <h2 id="nombre-local">El Musical</h2>
+
+                <address>
+                    Carrer Antonio Sorlí, 6<br>
+                    46134 Foios, Valencia
+                </address>
+
+                <!-- Google Maps calcula la ruta desde el origen que elija el visitante. -->
+                <a class="boton-ruta"
+                   href="https://www.google.com/maps/dir/?api=1&amp;destination=Restaurante%20El%20Musical%2C%20Carrer%20Antonio%20Sorl%C3%AD%206%2C%2046134%20Foios%2C%20Valencia"
+                   target="_blank" rel="noopener noreferrer">
+                    Cómo llegar
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+                <!-- Alternativa directa para abrir el mapa fuera de la web. -->
+                <a class="enlace-mapa"
+                   href="https://www.google.com/maps/search/?api=1&amp;query=Restaurante%20El%20Musical%2C%20Carrer%20Antonio%20Sorl%C3%AD%206%2C%2046134%20Foios%2C%20Valencia"
+                   target="_blank" rel="noopener noreferrer">
+                    Ver en Google Maps
+                </a>
+            </section>
+        </div>
+
+        <div class="reseña">
+            <a class="boton-reseña"
+                href="https://search.google.com/local/writereview?placeid=ChIJN5h8HnVHYA0RpAgL4mU4wNs"
+                target="_blank" rel="noopener noreferrer">
+                Déjanos una reseña
+            </a>
+        </div>
+
+        <p class="cierre-ubicacion">Te esperamos en El Musical.</p>
+    </main>
+</body>
+</html>
