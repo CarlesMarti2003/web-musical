@@ -480,6 +480,60 @@ html {
 }
 
 
+/* Precios inmediatamente después de la descripción.
+   flex-wrap permite que las dos modalidades pasen a otra fila en móvil. */
+.precios-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px 48px;
+    margin: 24px 0 16px;
+}
+
+.precios-menu .precio-menu {
+    margin: 0;
+    font-family: Cambria, Georgia, serif;
+    line-height: 1.4;
+}
+
+/* p/p significa precio por persona. */
+.unidad-precio {
+    font-size: 17px;
+    font-weight: normal;
+}
+
+.modalidad-precio {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+/* Este aviso se repite en los cuatro menús. */
+.opciones-menu {
+    margin: 0 0 32px;
+    color: #000000;
+    font-family: Cambria, Georgia, serif;
+    font-size: 19px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.menus .condiciones-menu {
+    margin: 0 0 16px;
+    color: #000000;
+}
+
+.menus .platos-menu li {
+    color: #000000;
+}
+
+/* El suplemento se muestra junto al plato y puede pasar a otra línea. */
+.suplemento-menu {
+    font-size: 17px;
+    white-space: normal;
+}
+
 /* Botón centrado al final de la carta o del menú seleccionado. */
 .pie-carta {
     margin-top: 48px;
