@@ -435,6 +435,21 @@ html {
     color: #000000;
 }
 
+/* Datos específicos de cada vino. Se conserva el diseño de nombres y precios
+   de los platos; estas reglas separan origen, nota de cata y variedades. */
+.vino .origen-vino {
+    margin: 4px 0 12px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+}
+
+.vino .variedad-vino {
+    margin-top: 12px;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
 /* Precio de cada plato o vino. */
 .precio {
     /* Evita que flex comprima la caja del precio cuando falta espacio. */
