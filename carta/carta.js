@@ -108,9 +108,24 @@ pestanas.forEach((pestana, indice) => {
     });
 });
 
+// Un enlace como #carta puede dar foco automáticamente a toda la sección.
+// Si ocurre, lo trasladamos a su pestaña para evitar el contorno gigante
+// alrededor del contenido y mantener un foco útil para navegar con teclado.
+function ajustarFocoDelDestino() {
+    const panelEnfocado = paneles.find((panel) => panel === document.activeElement);
+    if (panelEnfocado) {
+        const pestana = pestanas.find((elemento) => elemento.hash === `#${panelEnfocado.id}`);
+        if (pestana) pestana.focus({ preventScroll: true });
+    }
+}
+
 // Los enlaces de la cabecera y los botones Atrás/Adelante también actualizan el panel.
-window.addEventListener('hashchange', () => seleccionarPanel(obtenerDestino()));
+window.addEventListener('hashchange', () => {
+    seleccionarPanel(obtenerDestino());
+    requestAnimationFrame(ajustarFocoDelDestino);
+});
 window.addEventListener('popstate', () => seleccionarPanel(obtenerDestino()));
+window.addEventListener('load', () => requestAnimationFrame(ajustarFocoDelDestino));
 seleccionarPanel(obtenerDestino());
 
 // Vuelve al principio con animación sin cambiar la pestaña seleccionada.

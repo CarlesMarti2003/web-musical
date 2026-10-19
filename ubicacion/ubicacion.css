@@ -13,8 +13,8 @@
 /* Mismo tratamiento de letras que las etiquetas de la carta. */
 .etiqueta-ubicacion {
     margin: 0 0 16px;
-    color: #405847;
-    font-family: Arial, sans-serif;
+    color: var(--verde-oscuro);
+    font-family: var(--fuente-texto);
     font-size: 13px;
     font-weight: normal;
     letter-spacing: 0.14em;
@@ -27,14 +27,14 @@
     max-width: none;
     margin: 0 0 20px;
     padding: 0;
-    font-family: Cambria, Georgia, serif;
+    font-family: var(--fuente-titulos);
     font-size: clamp(42px, 6vw, 72px);
 }
 
 .introduccion-ubicacion > p:last-child {
     max-width: 48ch;
     margin: 0 auto;
-    font-family: Cambria, Georgia, serif;
+    font-family: var(--fuente-texto);
     font-size: 22px;
     line-height: 1.6;
 }
@@ -44,16 +44,16 @@
     display: grid;
     grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
     overflow: hidden;
-    border: 1px solid #dcd8cb;
+    border: 1px solid var(--color-borde);
     border-radius: 18px;
-    background-color: #ffffff;
+    background-color: var(--color-superficie);
     box-shadow: 0 16px 40px rgb(35 61 43 / 8%);
 }
 
 .tarjeta-mapa {
     min-width: 0;
     min-height: 480px;
-    background-color: #e8ede4;
+    background-color: var(--verde-suave);
 }
 
 .tarjeta-mapa iframe {
@@ -81,8 +81,8 @@
     height: 56px;
     margin-bottom: 28px;
     border-radius: 50%;
-    background-color: #edf4eb;
-    color: #285d3d;
+    background-color: var(--verde-suave);
+    color: var(--verde-oscuro);
 }
 
 .icono-ubicacion svg {
@@ -92,14 +92,14 @@
 
 .datos-ubicacion h2 {
     margin: 0 0 20px;
-    font-family: Cambria, Georgia, serif;
+    font-family: var(--fuente-titulos);
     font-size: 36px;
     line-height: 1.2;
 }
 
 .datos-ubicacion address {
     margin-bottom: 28px;
-    font-family: Cambria, Georgia, serif;
+    font-family: var(--fuente-texto);
     font-size: 21px;
     /* address usa cursiva por defecto; aquí mostramos letra normal. */
     font-style: normal;
@@ -117,14 +117,18 @@
     padding: 15px 22px;
     border-radius: 6px;
     background-color: var(--verde-principal);
-    color: #10291b;
-    font-size: 15px;
+    color: var(--verde-oscuro);
+    font-size: 16px;
     text-decoration: none;
+    font-family: var(--fuente-titulos);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 .boton-ruta:hover,
 .boton-reseña:hover {
-    background-color: #267e4a;
+    background-color: var(--verde-oscuro);
     color: #ffffff;
 }
 
@@ -136,7 +140,7 @@
 
 .enlace-mapa {
     margin-top: 20px;
-    color: #365441;
+    color: var(--verde-oscuro);
     font-size: 14px;
     line-height: 1.5;
     text-underline-offset: 4px;
@@ -148,8 +152,8 @@
 
 .cierre-ubicacion {
     margin: 32px 0 0;
-    color: #405847;
-    font-family: Cambria, Georgia, serif;
+    color: var(--verde-oscuro);
+    font-family: var(--fuente-texto);
     font-size: 20px;
     text-align: center;
 }
@@ -177,4 +181,38 @@
     .tarjeta-mapa iframe {
         min-height: 360px;
     }
+}
+
+/* Horarios: presentación y tabla, con la misma paleta que el mapa. */
+.horario-local {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 48px;
+    margin-top: 48px;
+    padding: 40px;
+    border: 1px solid var(--color-borde);
+    border-radius: 18px;
+    background: var(--verde-suave);
+    scroll-margin-top: 280px;
+}
+.introduccion-horario h2 { margin: 0 0 20px; font-size: 36px; }
+.introduccion-horario > p:last-child { margin: 0; }
+.tabla-horarios { width: 100%; border-collapse: collapse; }
+.tabla-horarios caption {
+    text-align: left;
+    margin-bottom: 16px;
+    color: var(--verde-oscuro);
+    font-size: 16px;
+}
+.tabla-horarios th, .tabla-horarios td {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-borde);
+    vertical-align: top;
+}
+.tabla-horarios th { text-align: left; font-weight: 600; }
+.tabla-horarios td { text-align: right; }
+.tabla-horarios td span { display: block; white-space: nowrap; }
+.tabla-horarios tr:last-child > * { border-bottom: 0; }
+@media (max-width: 800px) {
+    .horario-local { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 28px 20px; }
 }

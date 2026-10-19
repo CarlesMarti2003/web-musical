@@ -5,8 +5,8 @@
     --altura-selector: 0px;
 
     /* Colores propios de la carta, reutilizados más abajo. */
-    --borde-carta: #dcd8cb;
-    --texto-secundario-carta: #5c655a;
+    --borde-carta: var(--color-borde);
+    --texto-secundario-carta: var(--texto-secundario);
 
     /* --color-fondo y --verde-principal ya están en styles.css. */
 }
@@ -73,8 +73,8 @@ html {
     /* Elimina el espacio interior definido por otra regla h1. */
     padding: 0;
 
-    /* Usa la primera fuente disponible de esta lista. */
-    font-family: Cambria, Georgia, serif;
+    /* La misma fuente de títulos que en el resto de la web. */
+    font-family: var(--fuente-titulos);
 
     /*
        Tamaño adaptable:
@@ -197,14 +197,17 @@ html {
     padding: 16px 0;
 
     color: var(--texto-secundario-carta);
-    font-family: Cambria, Georgia, serif;
-    font-size: 21px;
+    font-family: var(--fuente-titulos);
+    font-size: 20px;
 
     /* Elimina el subrayado habitual de los enlaces. */
     text-decoration: none;
 
     /* Evita que "Menú Degustación", por ejemplo, se divida en dos líneas. */
     white-space: nowrap;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 /*
@@ -219,7 +222,7 @@ html {
 
 /* Solo la opción seleccionada aparece en negrita. */
 .pestana-carta[aria-selected="true"] {
-    font-weight: bold;
+    font-weight: 600;
 }
 
 /*
@@ -289,12 +292,12 @@ html {
     color: #292929;
 
     /* Misma familia de letras que el H1 y las pestañas de la carta. */
-    font-family: Cambria, Georgia, serif;
+    font-family: var(--fuente-titulos);
 
     /* Mínimo 24px, tamaño adaptable 4vw, máximo 32px. */
     font-size: clamp(24px, 4vw, 32px);
 
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     text-align: center;
     text-transform: uppercase;
 }
@@ -318,9 +321,9 @@ html {
     text-align: center;
 }
 
-/* La introducción de cada carta utiliza también la fuente del H1. */
+/* Textos largos: la segunda fuente, compartida con las descripciones. */
 .descripcion-carta {
-    font-family: Cambria, Georgia, serif;
+    font-family: var(--fuente-texto);
 }
 
 
@@ -342,17 +345,19 @@ html {
 .categoria h3 {
     margin: 0 0 28px;
     color: var(--texto-secundario-carta);
-    font-size: 18px;
-    letter-spacing: 0.1em;
+    font-size: 21px;
+    letter-spacing: 0.12em;
     text-align: center;
     text-transform: uppercase;
+    font-family: var(--fuente-titulos);
+    font-weight: 500;
 }
 
 /* Disponibilidad de hamburguesas, bocadillos y arroces. */
 .disponibilidad-categoria {
     margin: -12px 0 28px;
     color: #000000;
-    font-family: Cambria, Georgia, serif;
+    font-family: var(--fuente-texto);
     font-size: 18px;
     font-style: italic;
     text-align: center;
@@ -398,13 +403,12 @@ html {
 /* Nombre del plato. */
 .plato h4 {
     margin: 0 0 8px;
-    font-size: 17px;
+    font-size: 19px;
 
-    /* Mismo estilo que CARTA y UBICACIÓN en la navegación superior.
-       Conservamos 17px para que los nombres de los platos sean legibles. */
-    font-family: Arial, sans-serif;
-    font-weight: normal;
-    letter-spacing: 0.14em;
+    /* Misma fuente estrecha que la navegación; 19px para los nombres de platos. */
+    font-family: var(--fuente-titulos);
+    font-weight: 500;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
 
     /*
@@ -425,7 +429,7 @@ html {
 .condiciones-menu {
     margin: 0;
     color: var(--texto-secundario-carta);
-    font-family: Cambria, Georgia, serif;
+    font-family: var(--fuente-texto);
     font-size: 20px;
     line-height: 1.6;
 }
@@ -439,7 +443,7 @@ html {
    de los platos; estas reglas separan origen, nota de cata y variedades. */
 .vino .origen-vino {
     margin: 4px 0 12px;
-    font-family: Arial, sans-serif;
+    font-family: var(--fuente-texto);
     font-size: 14px;
     letter-spacing: 0.04em;
 }
@@ -456,6 +460,8 @@ html {
     flex-shrink: 0;
 
     font-size: 18px;
+    font-family: var(--fuente-texto);
+    font-weight: 600;
 }
 
 /* Cada opción dentro de un menú. */
@@ -492,7 +498,7 @@ html {
 
 .precios-menu .precio-menu {
     margin: 0;
-    font-family: Cambria, Georgia, serif;
+    font-family: var(--fuente-titulos);
     line-height: 1.4;
 }
 
@@ -504,7 +510,7 @@ html {
 
 .modalidad-precio {
     display: block;
-    font-family: Arial, sans-serif;
+    font-family: var(--fuente-texto);
     font-size: 15px;
     font-weight: normal;
 }
@@ -513,7 +519,7 @@ html {
 .opciones-menu {
     margin: 0 0 32px;
     color: #000000;
-    font-family: Cambria, Georgia, serif;
+    font-family: var(--fuente-texto);
     font-size: 19px;
     line-height: 1.6;
     text-align: center;
@@ -552,10 +558,15 @@ html {
     background-color: var(--color-fondo);
     color: #292929;
     cursor: pointer;
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 .volver-arriba:hover {
-    background-color: var(--verde-principal);
+    background-color: var(--verde-oscuro);
     color: #ffffff;
 }
 
@@ -592,8 +603,12 @@ html {
     .pestana-carta {
         /* Hace las opciones menos altas y su texto más pequeño. */
         min-height: 60px;
-        font-size: 19px;
-    }
+        font-size: 20px;
+    font-family: var(--fuente-titulos);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
 
     .contenido-carta {
         /* Reduce los espacios alrededor del contenido. */

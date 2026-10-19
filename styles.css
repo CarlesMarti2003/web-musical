@@ -1,6 +1,32 @@
+/* Fuentes alojadas en el proyecto: no necesitan estar instaladas en el dispositivo. */
+@font-face {
+    font-family: "Oswald";
+    src: url("assets/fonts/Oswald.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 200 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Sans 3";
+    src: url("assets/fonts/SourceSans3.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 200 900;
+    font-display: swap;
+}
+
+/* Paleta y dos familias compartidas por todas las páginas.
+   El verde se ha aproximado a partir de la fotografía de la carta. */
 :root{
-    --verde-principal: #2d9759;
+    --verde-principal: #83a084;
     --color-fondo: #fffaf3;
+    --verde-oscuro: #38563d;
+    --verde-suave: #edf2eb;
+    --color-superficie: #fffdf8;
+    --color-borde: #d8dfd3;
+    --texto-secundario: #485845;
+    --fuente-titulos: "Oswald", sans-serif;
+    --fuente-texto: "Source Sans 3", sans-serif;
 }
 
 *{
@@ -8,10 +34,28 @@
 }
 
 body{
-    margin: 0px 0px 16px 0px;
-    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuente-texto);
     color: #292929;
     background-color: var(--color-fondo);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Fuente estrecha inspirada en los rótulos de la carta impresa. */
+h1, h2, h3, h4 {
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+button, input, select, textarea {
+    font: inherit;
 }
 
 /*--- CONTENEDOR DE LA CABECERA ---*/
@@ -29,10 +73,13 @@ body{
 }
 
 .nombre-restaurante {
-    font-size: 26px;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: 600;
     color: #292929;
     text-decoration: none; /* Elimina el subrallado del enlace */
+    font-family: var(--fuente-titulos);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .cabecera nav ul {
@@ -48,14 +95,15 @@ body{
 .cabecera nav a{
     color: #292929;
     text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 0.14em;
+    font-size: 16px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    font-weight: normal;
+    font-weight: 500;
+    font-family: var(--fuente-titulos);
 }
 
 .cabecera nav a:hover {
-    color: #eeeeee;
+    color: var(--verde-oscuro);
     text-decoration: underline;
 }
 
@@ -63,14 +111,19 @@ body{
     display: inline-block;
     padding: 12px;
     border-radius: 6px;
-    background-color: #eeeeee;
-    color: var(--verde-principal);
+    background-color: var(--color-fondo);
+    color: var(--verde-oscuro);
     text-align: center;
     text-decoration: none;
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 .boton-reserva:hover{
-    background-color: #dddddd;
+    background-color: var(--verde-suave);
 }
 
 .presentacion{
@@ -82,24 +135,30 @@ body{
 }
 
 .presentacion h1{
-    font-weight: bold;
+    /* El espacio lo controla la presentación, sin duplicar el relleno del h1. */
+    padding: 0;
+    font-weight: 600;
     font-size: clamp(42px, 7vw, 90px);
-    font-family: Cambria;
-    line-height: 1.1;
+    font-family: var(--fuente-titulos);
+    line-height: 1.15;
     margin: 0 0 24px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 h1{
     width: 100%;
     max-width: 800px;
-    font-weight: bold;
+    font-weight: 600;
     font-size: clamp(42px, 7vw, 90px);
-    font-family: Cambria;
-    line-height: 1.1;
+    font-family: var(--fuente-titulos);
+    line-height: 1.15;
     margin: 0 0 24px;
     margin: 0 auto;
     padding: 60px;
     text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .presentacion p{
@@ -111,11 +170,15 @@ h1{
 
 .presentacion a{
     color: #292929;
-    font-size: 22px;
+    font-size: 20px;
+    font-family: var(--fuente-titulos);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .presentacion a:hover{
-    color: #eeeeee;
+    color: var(--verde-oscuro);
     text-decoration: underline;
 }
 
@@ -129,9 +192,69 @@ h1{
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 700px) {
+    .presentacion {
+        padding: 40px 20px;
+    }
+
     .cabecera {
         flex-direction: column;
         padding: 20px 16px;
         gap: 20px;
     }
+}
+
+/* El contenido crece para que el pie llegue al final en páginas cortas. */
+body > main { flex: 1; }
+
+/* Logo con tamaño reservado: no salta la cabecera al cargar la imagen. */
+.nombre-restaurante { display: inline-flex; flex-shrink: 0; }
+.logo-restaurante {
+    display: block;
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+/* Pie compartido por Inicio, Carta y Ubicación. */
+.pie-web {
+    margin-top: 48px;
+    padding: 48px 32px 24px;
+    background: var(--verde-suave);
+    border-top: 1px solid var(--color-borde);
+    color: var(--verde-oscuro);
+}
+.contenido-pie {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1176px;
+    margin: 0 auto;
+}
+.contenido-pie > * { min-width: 0; }
+.pie-web h2 { margin: 0 0 16px; font-size: 20px; }
+.nombre-pie {
+    margin: 0 0 12px;
+    font-family: var(--fuente-titulos);
+    font-size: 32px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.identidad-pie p:last-child { margin: 0; }
+.pie-web address { margin-bottom: 12px; font-style: normal; }
+.pie-web ul { margin: 0; padding: 0; list-style: none; }
+.pie-web li + li { margin-top: 8px; }
+.pie-web a { color: inherit; text-underline-offset: 4px; }
+.pie-web a:hover { color: #292929; }
+.credito-pie {
+    max-width: 1176px;
+    margin: 32px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-borde);
+    font-size: 15px;
+}
+@media (max-width: 700px) {
+    .contenido-pie { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+    .pie-web { padding: 36px 20px 20px; }
+    .logo-restaurante { width: 64px; height: 64px; }
 }

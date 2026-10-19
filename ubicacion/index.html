@@ -13,7 +13,9 @@
 
 <body>
     <header class="cabecera">
-        <a class="nombre-restaurante" href="../index.html">El Musical</a>
+        <a class="nombre-restaurante" href="../index.html">
+            <img class="logo-restaurante" src="../images/logo_musical.jpg" alt="El Musical · Inicio" width="76" height="76">
+        </a>
 
         <nav aria-label="Navegación principal">
             <ul>
@@ -22,7 +24,7 @@
             </ul>
         </nav>
 
-        <a class="boton-reserva" href="tel:+34000000000"> <!-- Teléfono pendiente, como en las demás páginas. -->
+        <a class="boton-reserva" href="tel:+34611469134"> <!-- Teléfono pendiente, como en las demás páginas. -->
             Reservar por teléfono
         </a>
     </header>
@@ -83,6 +85,27 @@
             </section>
         </div>
 
+        <!-- Horario de apertura de la captura; una fila por día. -->
+        <section id="horario" class="horario-local" aria-labelledby="titulo-horario">
+            <div class="introduccion-horario">
+                <p class="etiqueta-ubicacion">Organiza tu visita</p>
+                <h2 id="titulo-horario">Nuestros horarios</h2>
+                <p>Te esperamos de lunes a domingo. Los viernes y sábados también abrimos por la noche.</p>
+            </div>
+            <table class="tabla-horarios">
+                <caption>Horario de apertura del restaurante</caption>
+                <tbody>
+                        <tr><th scope="row">Lunes</th><td><span>8:00–15:30</span></td></tr>
+                        <tr><th scope="row">Martes</th><td><span>8:00–15:30</span></td></tr>
+                        <tr><th scope="row">Miércoles</th><td><span>8:00–15:30</span></td></tr>
+                        <tr><th scope="row">Jueves</th><td><span>8:00–15:30</span></td></tr>
+                        <tr><th scope="row">Viernes</th><td><span>8:00–15:30</span><span>20:00–00:00</span></td></tr>
+                        <tr><th scope="row">Sábado</th><td><span>8:00–17:00</span><span>20:00–00:00</span></td></tr>
+                        <tr><th scope="row">Domingo</th><td><span>12:00–17:00</span></td></tr>
+                </tbody>
+            </table>
+        </section>
+
         <div class="reseña">
             <a class="boton-reseña"
                 href="https://search.google.com/local/writereview?placeid=ChIJN5h8HnVHYA0RpAgL4mU4wNs"
@@ -93,5 +116,29 @@
 
         <p class="cierre-ubicacion">Te esperamos en El Musical.</p>
     </main>
+
+    <!-- Pie común: contacto, navegación y crédito del proyecto. -->
+    <footer class="pie-web">
+        <div class="contenido-pie">
+            <div class="identidad-pie">
+                <p class="nombre-pie">El Musical</p>
+                <p>Sabores para compartir en Foios.</p>
+            </div>
+            <div>
+                <h2>Encuéntranos</h2>
+                <address>Carrer Antonio Sorlí, 6<br>46134 Foios, Valencia</address>
+                <a href="tel:+34611469134">Llamar al restaurante</a>
+            </div>
+            <nav aria-label="Navegación del pie">
+                <h2>Descubre El Musical</h2>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../carta/index.html#carta">Carta y menús</a></li>
+                    <li><a href="../ubicacion/index.html#horario">Ubicación y horarios</a></li>
+                </ul>
+            </nav>
+        </div>
+        <p class="credito-pie">Proyecto de porfolio · Diseño y desarrollo: <a href="https://github.com/CarlesMarti2003">Carles Martí</a></p>
+    </footer>
 </body>
 </html>
