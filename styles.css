@@ -1,4 +1,5 @@
-/* Fuentes alojadas en el proyecto: no necesitan estar instaladas en el dispositivo. */
+/* ===== 1. Fuentes, variables y estilos base ===== */
+
 @font-face {
     font-family: "Oswald";
     src: url("assets/fonts/Oswald.ttf") format("truetype");
@@ -17,7 +18,7 @@
 
 /* Paleta y dos familias compartidas por todas las páginas.
    El verde se ha aproximado a partir de la fotografía de la carta. */
-:root{
+:root {
     --carbon: #201f1e;
     --ancho-pagina: 1240px;
     --alto-barra: 68px;
@@ -27,22 +28,23 @@
     --verde-suave: #edf2eb;
     --color-superficie: #fffdf8;
     --color-borde: #d8dfd3;
+    --texto-principal: #292929;
     --texto-secundario: #485845;
     --fuente-titulos: "Oswald", sans-serif;
     --fuente-texto: "Source Sans 3", sans-serif;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: var(--fuente-texto);
-    color: #292929;
+    color: var(--texto-principal);
     background-color: var(--color-fondo);
     font-size: 18px;
     line-height: 1.6;
@@ -60,6 +62,37 @@ h1, h2, h3, h4 {
 button {
     font: inherit;
 }
+
+/* En páginas cortas, el contenido ocupa el espacio disponible antes del pie. */
+body > main { flex: 1; }
+
+h1 {
+    width: 100%;
+    line-height: 1.15;
+    margin: 0;
+    text-align: center;
+}
+
+.etiqueta-seccion {
+    margin: 0 0 16px;
+    color: var(--verde-oscuro);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* Misma tipografía y forma; cada sección define el color de su botón. */
+.boton-accion {
+    border-radius: 6px;
+    font-family: var(--fuente-titulos);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+/* ===== 2. Cabecera y navegación principal ===== */
 
 /* La misma cabecera en las tres páginas; solo cambia el fondo del inicio. */
 .cabecera {
@@ -97,9 +130,12 @@ button {
     padding: 8px 32px;
 }
 
+.cabecera a {
+    display: inline-flex;
+}
+
 .cabecera a,
 .boton-menu {
-    display: inline-flex;
     align-items: center;
     min-height: 44px;
     color: inherit;
@@ -192,81 +228,8 @@ button {
     .boton-menu:not([hidden]) + .cabecera-nav a { width: 100%; }
 }
 
-.presentacion{
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 60px;
-    text-align: center;
-}
 
-/* Los títulos de cada página solo ajustan el tamaño y el margen. */
-h1 {
-    width: 100%;
-    font-size: clamp(42px, 7vw, 90px);
-    line-height: 1.15;
-    margin: 0;
-    text-align: center;
-}
-
-.presentacion p{
-    font-size: 22px;
-    line-height: 1.6;
-    max-width: 60ch;
-    margin: 0 auto 24px;
-}
-
-/* El contenido crece para que el pie llegue al final en páginas cortas. */
-body > main { flex: 1; }
-
-/* El archivo completo conserva sus proporciones y se apoya sobre el pie claro. */
-.logo-restaurante {
-    display: block;
-    width: 104px;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 12px;
-}
-
-/* Pie compartido por Inicio, Carta y Ubicación. */
-.pie-web {
-    margin-top: 48px;
-    padding: 48px 32px 24px;
-    background: var(--verde-suave);
-    border-top: 1px solid var(--color-borde);
-    color: var(--verde-oscuro);
-}
-.contenido-pie {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr 1fr;
-    gap: 40px;
-    max-width: 1176px;
-    margin: 0 auto;
-}
-.contenido-pie > * { min-width: 0; }
-.pie-web h2 { margin: 0 0 16px; font-size: 20px; }
-.identidad-pie p:last-child { margin: 0; }
-.pie-web address { margin-bottom: 12px; font-style: normal; }
-.pie-web ul { margin: 0; padding: 0; list-style: none; }
-.pie-web li + li { margin-top: 8px; }
-.pie-web a { color: inherit; text-underline-offset: 4px; }
-.pie-web a:hover { color: #292929; }
-.credito-pie {
-    max-width: 1176px;
-    margin: 32px auto 0;
-    padding-top: 20px;
-    border-top: 1px solid var(--color-borde);
-    font-size: 15px;
-}
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 700px) {
-    .presentacion {
-        padding: 40px 20px;
-    }
-
-    .contenido-pie { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-    .pie-web { padding: 36px 20px 20px; }
-}
+/* ===== 3. Inicio: portada y presentación ===== */
 
 .portada {
     display: flex;
@@ -311,14 +274,8 @@ body > main { flex: 1; }
 .portada-enlace {
     display: inline-block;
     padding: 12px 22px;
-    border-radius: 6px;
     background-color: var(--color-fondo);
     color: var(--verde-oscuro);
-    font-family: var(--fuente-titulos);
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    text-transform: uppercase;
 }
 
 .portada-enlace:hover {
@@ -340,11 +297,27 @@ body > main { flex: 1; }
     outline-offset: 3px;
 }
 
+.presentacion {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px;
+    text-align: center;
+}
+
+.presentacion p {
+    font-size: 22px;
+    max-width: 60ch;
+    margin: 0 auto 24px;
+}
+
 .presentacion h2 {
     margin: 0 0 16px;
 }
 
 @media (max-width: 700px) {
+    .presentacion { padding: 40px 20px; }
+
     .portada {
         align-items: flex-end;
         min-height: clamp(420px, 60svh, 540px);
@@ -355,4 +328,535 @@ body > main { flex: 1; }
         background-size: cover;
         background-position: center;
     }
+}
+
+
+/* ===== 4. Carta, vinos y menús ===== */
+
+/* Los tamaños son los de las barras fijas; carta.js los actualiza al medirlas. */
+.pagina-carta {
+    scroll-padding-top: calc(
+        var(--altura-cabecera, 0px) + var(--altura-selector, 0px) + 24px
+    );
+}
+
+.introduccion-carta {
+    padding: 64px 24px 40px;
+    text-align: center;
+}
+
+.introduccion-carta .etiqueta-seccion { color: var(--texto-secundario); }
+
+.introduccion-carta h1 {
+    margin: 0 0 20px;
+    font-size: clamp(40px, 6vw, 72px);
+}
+
+.introduccion-carta > p:last-child {
+    margin: 0;
+    color: var(--texto-secundario);
+    line-height: 1.5;
+}
+
+.selector-carta {
+    position: sticky;
+    top: var(--altura-cabecera, 0px);
+    z-index: 20;
+    padding: 0 24px;
+    background-color: var(--color-fondo);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.pestanas-carta {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.pestana-carta {
+    position: relative;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    min-height: 72px;
+    padding: 16px 0;
+    color: var(--texto-secundario);
+    font-family: var(--fuente-titulos);
+    font-size: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pestana-carta:hover,
+.pestana-carta[aria-selected="true"] {
+    color: var(--texto-principal);
+}
+
+.pestana-carta[aria-selected="true"] {
+    font-weight: 600;
+}
+
+.pestana-carta[aria-selected="true"]::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 12px;
+    height: 2px;
+    background-color: var(--verde-principal);
+}
+
+.pestana-carta:focus:not(:focus-visible) { outline: none; }
+.pestana-carta:focus-visible {
+    outline: 2px solid var(--verde-oscuro);
+    outline-offset: -3px;
+}
+
+/* Paneles, categorías, platos y vinos. */
+.contenido-carta {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 56px 24px 100px;
+}
+
+.panel-carta { margin-bottom: 48px; }
+
+.panel-carta h2 {
+    margin: 0 0 36px;
+    font-size: clamp(24px, 4vw, 32px);
+    letter-spacing: 0.12em;
+    text-align: center;
+}
+
+.descripcion-carta {
+    margin: 0;
+    padding: 32px 20px;
+    border: 1px solid var(--color-borde);
+    color: #000000;
+    font-size: 20px;
+    text-align: center;
+}
+
+.categoria {
+    margin: 48px 0;
+}
+
+.categoria + .categoria {
+    margin-top: 64px;
+}
+
+.categoria h3 {
+    margin: 0 0 28px;
+    color: var(--texto-secundario);
+    font-size: 21px;
+    letter-spacing: 0.12em;
+    text-align: center;
+    font-weight: 500;
+}
+
+.disponibilidad-categoria {
+    margin: -12px 0 28px;
+    color: #000000;
+    font-style: italic;
+    text-align: center;
+}
+
+.lista-platos,
+.platos-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.plato {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.plato > div {
+    min-width: 0;
+}
+
+.plato h4 {
+    margin: 0 0 8px;
+    font-size: 19px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+.plato p {
+    margin: 0;
+    color: #000000;
+    font-size: 20px;
+}
+
+.vino .origen-vino {
+    margin: 4px 0 12px;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+}
+
+.vino .variedad-vino {
+    margin-top: 12px;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.precio {
+    flex-shrink: 0;
+    font-weight: 600;
+}
+
+/* Opciones, condiciones y precios de los menús. */
+.platos-menu li,
+.condiciones-menu {
+    color: #000000;
+    font-size: 20px;
+    text-align: center;
+}
+
+.platos-menu li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.precios-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px 48px;
+    margin: 24px 0 16px;
+}
+
+.precio-menu {
+    margin: 0;
+    font-family: var(--fuente-titulos);
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.unidad-precio {
+    font-size: 17px;
+    font-weight: normal;
+}
+
+.modalidad-precio {
+    font-family: var(--fuente-texto);
+    display: block;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.opciones-menu {
+    margin: 0 0 32px;
+    color: #000000;
+    font-size: 19px;
+    text-align: center;
+}
+
+.condiciones-menu { margin: 0 0 16px; }
+
+.suplemento-menu {
+    font-size: 17px;
+}
+
+.pie-carta {
+    margin-top: 48px;
+    text-align: center;
+}
+
+.volver-arriba {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border: 1px solid var(--verde-principal);
+    background-color: var(--color-fondo);
+    color: var(--texto-principal);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.volver-arriba:hover {
+    background-color: var(--verde-oscuro);
+    color: #ffffff;
+}
+
+@media (max-width: 1100px) {
+    .pestanas-carta {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 700px) {
+    .introduccion-carta {
+        padding: 40px 20px 28px;
+    }
+
+    .selector-carta {
+        padding: 0 16px;
+    }
+
+    .pestanas-carta {
+        gap: 24px;
+    }
+
+    .pestana-carta {
+        min-height: 60px;
+    }
+
+    .contenido-carta {
+        padding: 36px 20px 64px;
+    }
+
+    .plato {
+        gap: 16px;
+    }
+}
+
+
+/* ===== 5. Ubicación, mapa y horarios ===== */
+
+.pagina-ubicacion {
+    max-width: var(--ancho-pagina);
+    margin: 0 auto;
+    padding: 64px 32px 40px;
+}
+
+.introduccion-ubicacion {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.introduccion-ubicacion h1 {
+    margin: 0 0 20px;
+    font-size: clamp(42px, 6vw, 72px);
+}
+
+.introduccion-ubicacion > p:last-child {
+    max-width: 48ch;
+    margin: 0 auto;
+    font-size: 22px;
+}
+
+/* Mapa y ficha de dirección. */
+.encuentranos {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+    border-radius: 18px;
+    background-color: var(--color-superficie);
+    box-shadow: 0 16px 40px rgb(35 61 43 / 8%);
+}
+
+.tarjeta-mapa {
+    min-width: 0;
+    min-height: 480px;
+    background-color: var(--verde-suave);
+}
+
+.tarjeta-mapa iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    border: 0;
+}
+
+.datos-ubicacion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    padding: 44px 36px;
+}
+
+.icono-ubicacion {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 28px;
+    border-radius: 50%;
+    background-color: var(--verde-suave);
+    color: var(--verde-oscuro);
+}
+
+.icono-ubicacion svg {
+    width: 26px;
+    height: 26px;
+}
+
+.datos-ubicacion h2 {
+    margin: 0 0 20px;
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.datos-ubicacion address {
+    margin-bottom: 28px;
+    font-size: 21px;
+    font-style: normal;
+}
+
+.boton-ubicacion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    max-width: 100%;
+    padding: 15px 22px;
+    background-color: var(--verde-principal);
+    color: var(--verde-oscuro);
+    font-size: 16px;
+}
+
+.boton-ubicacion:hover {
+    background-color: var(--verde-oscuro);
+    color: #ffffff;
+}
+
+.reseña {
+    margin-bottom: 48px;
+    text-align: center;
+    padding: 20px;
+}
+
+.enlace-mapa {
+    margin-top: 20px;
+    color: var(--verde-oscuro);
+    font-size: 14px;
+    line-height: 1.5;
+    text-underline-offset: 4px;
+}
+
+.enlace-mapa:hover {
+    color: #111111;
+}
+
+.cierre-ubicacion {
+    margin: 32px 0 0;
+    color: var(--verde-oscuro);
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Horarios de apertura. */
+.horario-local {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 48px;
+    margin-top: 48px;
+    padding: 40px;
+    border: 1px solid var(--color-borde);
+    border-radius: 18px;
+    background: var(--verde-suave);
+    scroll-margin-top: 280px;
+}
+.introduccion-horario h2 { margin: 0 0 20px; font-size: 36px; }
+.introduccion-horario > p:last-child { margin: 0; }
+.tabla-horarios { width: 100%; border-collapse: collapse; }
+.tabla-horarios caption {
+    text-align: left;
+    margin-bottom: 16px;
+    color: var(--verde-oscuro);
+    font-size: 16px;
+}
+.tabla-horarios th, .tabla-horarios td {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-borde);
+    vertical-align: top;
+}
+.tabla-horarios th { text-align: left; font-weight: 600; }
+.tabla-horarios td { text-align: right; }
+.tabla-horarios td span { display: block; white-space: nowrap; }
+.tabla-horarios tr:last-child > * { border-bottom: 0; }
+
+/* En móvil, la dirección va antes que el mapa. */
+@media (max-width: 800px) {
+    .pagina-ubicacion {
+        padding: 40px 20px 32px;
+    }
+
+    .introduccion-ubicacion {
+        margin-bottom: 32px;
+    }
+
+    .encuentranos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .datos-ubicacion {
+        order: -1;
+        padding: 32px 24px;
+    }
+
+    .tarjeta-mapa,
+    .tarjeta-mapa iframe {
+        min-height: 360px;
+    }
+    .horario-local { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 28px 20px; }
+}
+
+
+/* ===== 6. Pie de página ===== */
+
+/* El archivo completo conserva sus proporciones y se apoya sobre el pie claro. */
+.logo-restaurante {
+    display: block;
+    width: 104px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+/* Pie compartido por Inicio, Carta y Ubicación. */
+.pie-web {
+    --ancho-pie: 1176px;
+    margin-top: 48px;
+    padding: 48px 32px 24px;
+    background: var(--verde-suave);
+    border-top: 1px solid var(--color-borde);
+    color: var(--verde-oscuro);
+}
+.contenido-pie {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    gap: 40px;
+    max-width: var(--ancho-pie);
+    margin: 0 auto;
+}
+.contenido-pie > * { min-width: 0; }
+.pie-web h2 { margin: 0 0 16px; font-size: 20px; }
+.identidad-pie p:last-child { margin: 0; }
+.pie-web address { margin-bottom: 12px; font-style: normal; }
+.pie-web ul { margin: 0; padding: 0; list-style: none; }
+.pie-web li + li { margin-top: 8px; }
+.pie-web a { color: inherit; text-underline-offset: 4px; }
+.pie-web a:hover { color: var(--texto-principal); }
+.credito-pie {
+    max-width: var(--ancho-pie);
+    margin: 32px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-borde);
+    font-size: 15px;
+}
+
+@media (max-width: 700px) {
+    .contenido-pie { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+    .pie-web { padding: 36px 20px 20px; }
 }

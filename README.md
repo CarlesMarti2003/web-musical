@@ -43,17 +43,22 @@ Git y GitHub: historial de versiones y almacenamiento del código.
 
 Estructura del proyecto
 
+```text
 web-musical/
 ├── index.html
 ├── styles.css
+├── navegacion.js
 ├── README.md
+├── assets/fonts/
+├── images/
 ├── carta/
 │   ├── index.html
-│   ├── carta.css
 │   └── carta.js
 └── ubicacion/
-    ├── index.html
-    └── ubicacion.css
+    └── index.html
+```
+
+Las tres páginas cargan `styles.css`. La hoja está organizada por secciones: base, cabecera y navegación, inicio, carta y menús, ubicación y pie de página. Los ajustes de pantalla pequeña están al final de su sección.
 
 Cómo ver el proyecto
 
