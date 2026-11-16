@@ -11,44 +11,49 @@
     >
 
     <link rel="stylesheet" href="styles.css">
+    <script src="navegacion.js" defer></script>
 </head>
 
 <body>
-    <header class="cabecera">
-        <a class="nombre-restaurante" href="index.html">
-            <img class="logo-restaurante" src="images/logo_musical.jpg" alt="El Musical · Inicio" width="76" height="76">
-        </a>
-
-        <nav aria-label="Navegación principal">
-            <ul>
-                <!-- Carta reúne los platos, los vinos y los cuatro menús -->
-                <li><a href="carta/index.html#carta">Carta</a></li>
-                <li><a href="ubicacion/index.html">Ubicación</a></li>
-            </ul>
-        </nav>
-
-        <a class="boton-reserva" href="tel:+34611469134">
-            Reservar por teléfono
-        </a>
+    <header class="cabecera cabecera-inicio">
+        <div class="cabecera-interior">
+            <a class="nombre-restaurante" href="index.html" aria-current="page">El Musical</a>
+            <button class="boton-menu" type="button" aria-expanded="false" aria-controls="navegacion-principal" hidden>
+                Menú <span class="icono-menu" aria-hidden="true"></span>
+            </button>
+            <nav id="navegacion-principal" class="cabecera-nav" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="carta/index.html#carta">Carta</a></li>
+                    <li><a href="ubicacion/index.html">Ubicación y horarios</a></li>
+                    <li><a class="boton-reserva" href="tel:+34611469134">Reservar por teléfono</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section class="presentacion">
-            <!-- Título principal de la página -->
-            <h1>Restaurante El Musical</h1>
+    <section class="portada" aria-labelledby="titulo-portada">
+        <div class="portada-contenido">
+            <p class="portada-etiqueta">Restaurante · Foios</p>
+            <h1 id="titulo-portada">El Musical</h1>
+            <div class="portada-acciones">
+                <a class="portada-enlace" href="carta/index.html#carta">Ver carta</a>
+                <a class="portada-enlace portada-enlace-secundario" href="ubicacion/index.html">Dónde encontrarnos</a>
+            </div>
+        </div>
+    </section>
 
-            <!-- Descripción del restaurante -->
-            <p>El Musical es un restaurante en Foios donde disfrutar de arroces, tapas y una cocina que combina sabores tradicionales con propuestas originales. Un espacio acogedor con un trato cercano, para compartir mesa con amigos o en familia.</p>
-
-            <a href="carta/index.html#carta">Carta</a>
-        </section>
-    </main>
+    <section class="presentacion" aria-labelledby="titulo-presentacion">
+        <h2 id="titulo-presentacion">Sabores para compartir</h2>
+        <p>El Musical es un restaurante en Foios donde disfrutar de arroces, tapas y una cocina que combina sabores tradicionales con propuestas originales. Un espacio acogedor con un trato cercano, para compartir mesa con amigos o en familia.</p>
+    </section>
+</main>
 
     <!-- Pie común: contacto, navegación y crédito del proyecto. -->
     <footer class="pie-web">
         <div class="contenido-pie">
             <div class="identidad-pie">
-                <p class="nombre-pie">El Musical</p>
+                <img class="logo-restaurante" src="images/logo_musical.jpg" alt="El Musical" width="104" height="104" loading="lazy">
                 <p>Sabores para compartir en Foios.</p>
             </div>
             <div>
