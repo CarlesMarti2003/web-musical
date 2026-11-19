@@ -20,7 +20,7 @@
             </button>
             <nav id="navegacion-principal" class="cabecera-nav" aria-label="Navegación principal">
                 <ul>
-                    <li><a href="index.html#carta" aria-current="page">Carta</a></li>
+                    <li><a href="index.html" aria-current="page">Carta y menús</a></li>
                     <li><a href="../ubicacion/index.html">Ubicación y horarios</a></li>
                     <li><a class="boton-reserva" href="tel:+34678543723">Reservar por teléfono</a></li>
                 </ul>
@@ -31,24 +31,21 @@
     <main>
         <div class="introduccion-carta">
             <p class="etiqueta-seccion">Restaurante El Musical · Foios</p>
-            <h1>Carta y menús</h1>
+            <h1 id="opciones" tabindex="-1">Carta y menús</h1>
             <p>Elige qué te apetece descubrir.<br>Todos los precios se indican en euros e incluyen el IVA.</p>
         </div>
 
-        <nav class="selector-carta" aria-label="Cartas y menús">
-            <div class="pestanas-carta">
-                <a id="pestana-carta" class="pestana-carta" href="#carta">Carta</a>
-                <a id="pestana-carta-vinos" class="pestana-carta" href="#carta-vinos">Carta Vinos</a>
-                <a id="pestana-menu-diario" class="pestana-carta" href="#menu-diario">Menú Diario</a>
-                <a id="pestana-menu-bocatas" class="pestana-carta" href="#menu-bocatas">Menú Bocatas</a>
-                <a id="pestana-menu-degustacion" class="pestana-carta" href="#menu-degustacion">Menú Degustación</a>
-                <a id="pestana-menu-fin-de-semana" class="pestana-carta" href="#menu-fin-de-semana">Menú Fin De Semana</a>
-            </div>
+        <nav class="tarjetas-carta" aria-label="Elige una carta o menú">
+            <a href="#carta"><strong>Carta</strong><span>Tapas, arroces, hamburguesas y postres.</span></a>
+            <a href="#carta-vinos"><strong>Carta de vinos</strong><span>Blancos, tintos, rosados y espumosos.</span></a>
+            <a href="#menus-de-grupo"><strong>Menús de grupo</strong><span>Bocatas, degustación y fin de semana.</span><b>A partir de 4 personas</b></a>
+            <a href="#menu-diario"><strong>Menú diario</strong><span>Menú individual, disponible entre semana.</span></a>
         </nav>
 
         <div class="contenido-carta">
             <section id="carta" class="panel-carta" aria-labelledby="titulo-carta">
-                <h2 id="titulo-carta">Carta</h2>
+                <h2 id="titulo-carta" tabindex="-1">Carta</h2>
+                <a class="boton-accion volver-cartas" href="#opciones">Ver todas las cartas y menús</a>
                 <p class="descripcion-carta">
                     Nuestra carta reúne sabores de siempre y propuestas con un toque actual. Descubre nuestras tapas y pregunta por las sugerencias fuera de carta.
                 </p>
@@ -484,12 +481,21 @@
             </section>
 
             <section id="carta-vinos" class="panel-carta" aria-labelledby="titulo-vinos">
-                <h2 id="titulo-vinos">Carta Vinos</h2>
+                <h2 id="titulo-vinos" tabindex="-1">Carta de vinos</h2>
+                <a class="boton-accion volver-cartas" href="#opciones">Ver todas las cartas y menús</a>
                 <p class="descripcion-carta">Descubre nuestra selección de vinos y encuentra el acompañamiento para tu elección de platos.</p>
+
+                <nav class="indice-carta" aria-label="Categorías de la carta de vinos">
+                    <a class="boton-accion" href="#tintos">Tintos</a>
+                    <a class="boton-accion" href="#blancos">Blancos</a>
+                    <a class="boton-accion" href="#rosados">Rosados</a>
+                    <a class="boton-accion" href="#cava">Cava</a>
+                    <a class="boton-accion" href="#champagne">Champagne</a>
+                </nav>
 
                 <!-- Cada categoría agrupa los vinos de las fotos, sin repetir referencias. -->
                 <section class="categoria">
-                    <h3>Vinos blancos</h3>
+                    <h3 id="blancos" tabindex="-1">Vinos blancos</h3>
                     <ul class="lista-platos">
                         <li class="plato vino">
                             <div>
@@ -639,7 +645,7 @@
                 </section>
 
                 <section class="categoria">
-                    <h3>Vinos tintos</h3>
+                    <h3 id="tintos" tabindex="-1">Vinos tintos</h3>
                     <ul class="lista-platos">
                         <li class="plato vino">
                             <div>
@@ -807,7 +813,7 @@
                 </section>
 
                 <section class="categoria">
-                    <h3>Vinos rosados</h3>
+                    <h3 id="rosados" tabindex="-1">Vinos rosados</h3>
                     <ul class="lista-platos">
                         <li class="plato vino">
                             <div>
@@ -831,7 +837,7 @@
                 </section>
 
                 <section class="categoria">
-                    <h3>Cavas</h3>
+                    <h3 id="cava" tabindex="-1">Cavas</h3>
                     <ul class="lista-platos">
                         <li class="plato vino">
                             <div>
@@ -855,7 +861,7 @@
                 </section>
 
                 <section class="categoria">
-                    <h3>Champagne</h3>
+                    <h3 id="champagne" tabindex="-1">Champagne</h3>
                     <ul class="lista-platos">
                         <li class="plato vino">
                             <div>
@@ -879,8 +885,20 @@
                 </section>
             </section>
 
+            <section id="menus-de-grupo" class="panel-carta" aria-labelledby="titulo-grupo">
+                <h2 id="titulo-grupo" tabindex="-1">Menús de grupo</h2>
+                <a class="boton-accion volver-cartas" href="#opciones">Ver todas las cartas y menús</a>
+                <p class="condiciones-menu">A partir de 4 personas</p>
+                <nav class="tarjetas-carta" aria-label="Elige un menú de grupo">
+                    <a href="#menu-bocatas"><strong>Menú bocatas</strong><span>23 € por persona</span></a>
+                    <a href="#menu-degustacion"><strong>Menú degustación</strong><span>30 € por persona</span></a>
+                    <a href="#menu-fin-de-semana"><strong>Menú fin de semana</strong><span>27 € por persona sin bebida<br>33 € por persona con barra libre</span></a>
+                </nav>
+            </section>
+
             <section id="menu-diario" class="panel-carta" aria-labelledby="titulo-diario">
-                <h2 id="titulo-diario">Menú Diario</h2>
+                <h2 id="titulo-diario" tabindex="-1">Menú Diario</h2>
+                <a class="boton-accion volver-cartas" href="#opciones">Ver todas las cartas y menús</a>
                 <!-- Primero qué incluye, después los precios por persona y las opciones dietéticas. -->
                 <p class="descripcion-carta">Incluye un primero y un segundo a elegir, una bebida y postre o café. Solo disponible entre semana.</p>
                 <div class="precios-menu">
@@ -918,7 +936,8 @@
             </section>
 
             <section id="menu-bocatas" class="panel-carta" aria-labelledby="titulo-bocatas">
-                <h2 id="titulo-bocatas">Menú Bocatas</h2>
+                <h2 id="titulo-bocatas" tabindex="-1">Menú Bocatas</h2>
+                <a class="boton-accion volver-cartas" href="#opciones">Ver todas las cartas y menús</a>
                 <!-- Primero qué incluye, después los precios por persona y las opciones dietéticas. -->
                 <p class="descripcion-carta">Incluye cuatro entrantes para picar y un variado de bocadillos seleccionados por el restaurante para compartir al centro. También incluye bebida (agua, cerveza, refrescos o sangría) y café. Solo disponible por la noche.</p>
                 <div class="precios-menu">
@@ -945,7 +964,8 @@
             </section>
 
             <section id="menu-degustacion" class="panel-carta" aria-labelledby="titulo-degustacion">
-                <h2 id="titulo-degustacion">Menú Degustación</h2>
+                <h2 id="titulo-degustacion" tabindex="-1">Menú Degustación</h2>
+                <a class="boton-accion volver-cartas" href="#opciones">Ver todas las cartas y menús</a>
                 <!-- Primero qué incluye, después los precios por persona y las opciones dietéticas. -->
                 <p class="descripcion-carta">Incluye una selección de siete platos, un variado de postres de la casa, bebida (agua, cerveza, refrescos o vino de la casa) y café.</p>
                 <div class="precios-menu">
@@ -975,7 +995,8 @@
             </section>
 
             <section id="menu-fin-de-semana" class="panel-carta" aria-labelledby="titulo-fin-de-semana">
-                <h2 id="titulo-fin-de-semana">Menú Fin De Semana</h2>
+                <h2 id="titulo-fin-de-semana" tabindex="-1">Menú Fin De Semana</h2>
+                <a class="boton-accion volver-cartas" href="#opciones">Ver todas las cartas y menús</a>
                 <!-- Primero qué incluye, después los precios por persona y las opciones dietéticas. -->
                 <p class="descripcion-carta">Incluye tres tapas a elegir para toda la reserva y un plato principal, además de postre y café en las dos modalidades: con barra libre o sin bebida. Las tapas se sirven para cuatro personas o se adaptan al número de comensales. Solo disponible a medio día los fines de semana.</p>
                 <div class="precios-menu">
@@ -1063,7 +1084,7 @@
                 <h2>Explora</h2>
                 <ul>
                     <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="../carta/index.html#carta">Carta y menús</a></li>
+                    <li><a href="../carta/index.html">Carta y menús</a></li>
                     <li><a href="../ubicacion/index.html#horario">Ubicación y horarios</a></li>
                     <li><a href="https://www.instagram.com/rte.elmusicalfoios/">Instagram</a></li>
                 </ul>

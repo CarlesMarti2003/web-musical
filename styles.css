@@ -326,12 +326,7 @@ h1 {
 
 /* ===== 4. Carta, vinos y menús ===== */
 
-/* Los tamaños son los de las barras fijas; carta.js los actualiza al medirlas. */
-.pagina-carta {
-    scroll-padding-top: calc(
-        var(--altura-cabecera, 0px) + var(--altura-selector, 0px) + 24px
-    );
-}
+.pagina-carta { scroll-padding-top: calc(var(--alto-barra) + 24px); }
 
 .introduccion-carta {
     padding: 64px 24px 40px;
@@ -351,66 +346,37 @@ h1 {
     line-height: 1.5;
 }
 
-.selector-carta {
-    position: sticky;
-    top: var(--altura-cabecera, 0px);
-    z-index: 20;
-    padding: 0 24px;
-    background-color: var(--color-fondo);
-    border-bottom: 1px solid var(--color-borde);
+/* Las tarjetas son enlaces completos, también al navegar con teclado. */
+.tarjetas-carta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 960px;
+    margin: 0 auto 48px;
+    padding-inline: 20px;
 }
-
-.pestanas-carta {
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    max-width: 1200px;
-    margin: 0 auto;
-    overflow-x: auto;
-    scrollbar-width: thin;
-}
-
-.pestana-carta {
-    position: relative;
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    min-height: 72px;
-    padding: 16px 0;
-    color: var(--texto-secundario);
-    font-family: var(--fuente-titulos);
-    font-size: 20px;
-    text-decoration: none;
-    white-space: nowrap;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.pestana-carta:hover,
-.pestana-carta[aria-selected="true"] {
+.tarjetas-carta[hidden] { display: none; }
+.tarjetas-carta a {
+    display: grid;
+    align-content: center;
+    gap: 6px;
+    padding: clamp(20px, 3vw, 36px);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
     color: var(--texto-principal);
+    background: var(--color-superficie);
+    text-decoration: none;
+}
+.tarjetas-carta strong {
+    font-family: var(--fuente-titulos);
+    font-size: 26px;
+}
+.tarjetas-carta b { color: var(--verde-oscuro); }
+.tarjetas-carta a:hover, .tarjetas-carta a:focus-visible {
+    border-color: var(--verde-oscuro);
+    background: var(--verde-suave);
 }
 
-.pestana-carta[aria-selected="true"] {
-    font-weight: 600;
-}
-
-.pestana-carta[aria-selected="true"]::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 12px;
-    height: 2px;
-    background-color: var(--verde-principal);
-}
-
-.pestana-carta:focus:not(:focus-visible) { outline: none; }
-.pestana-carta:focus-visible {
-    outline: 2px solid var(--verde-oscuro);
-    outline-offset: -3px;
-}
 
 /* Paneles, categorías, platos y vinos. */
 .contenido-carta {
@@ -422,7 +388,7 @@ h1 {
 .panel-carta { margin-bottom: 48px; }
 
 .panel-carta h2 {
-    margin: 0 0 36px;
+    margin: 0 0 16px;
     font-size: clamp(24px, 4vw, 32px);
     letter-spacing: 0.12em;
     text-align: center;
@@ -447,16 +413,31 @@ h1 {
     border-radius: 6px;
 }
 
+.volver-cartas {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+
+.volver-cartas,
 .indice-carta a {
     padding: 11px 21px;
     border: 1px solid #000;
-    background-color: #000;
-    color: #fffaf3;
 }
 
+.indice-carta a,
+.volver-cartas:hover,
+.volver-cartas:focus-visible {
+    background-color: #000;
+    color: var(--color-fondo);
+}
+
+.volver-cartas,
 .indice-carta a:hover,
 .indice-carta a:focus-visible {
-    background-color: #fffaf3;
+    background-color: var(--color-fondo);
     color: #000;
 }
 
@@ -610,28 +591,12 @@ h1 {
     color: #ffffff;
 }
 
-@media (max-width: 1100px) {
-    .pestanas-carta {
-        justify-content: flex-start;
-    }
-}
-
 @media (max-width: 700px) {
     .introduccion-carta {
         padding: 40px 20px 28px;
     }
 
-    .selector-carta {
-        padding: 0 16px;
-    }
-
-    .pestanas-carta {
-        gap: 24px;
-    }
-
-    .pestana-carta {
-        min-height: 60px;
-    }
+    .tarjetas-carta { grid-template-columns: 1fr; }
 
     .contenido-carta {
         padding: 36px 20px 64px;
