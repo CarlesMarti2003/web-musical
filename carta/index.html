@@ -53,10 +53,20 @@
                     Nuestra carta reúne sabores de siempre y propuestas con un toque actual. Descubre nuestras tapas y pregunta por las sugerencias fuera de carta.
                 </p>
 
+                <nav class="indice-carta" aria-label="Categorías de la carta">
+                    <a class="boton-accion" href="#tapas-frias">Tapas frías</a>
+                    <a class="boton-accion" href="#tapas-calientes">Tapas calientes</a>
+                    <a class="boton-accion" href="#hamburguesas">Hamburguesas</a>
+                    <a class="boton-accion" href="#bocadillos">Bocadillos</a>
+                    <a class="boton-accion" href="#al-plato">Al plato</a>
+                    <a class="boton-accion" href="#arroces">Arroces</a>
+                    <a class="boton-accion" href="#postres">Postres</a>
+                </nav>
+
                 <!-- Repite cada li para añadir un plato y cada sección para otra categoría. -->
 
                 <section class="categoria">
-                    <h3>Tapas Frias</h3>
+                    <h3 id="tapas-frias" tabindex="-1">Tapas frías</h3>
                     <ul class="lista-platos">
                         <li class="plato">
                             <div>
@@ -133,7 +143,7 @@
 
                 <!-- Cada categoría tiene su sección para conservar el espacio entre títulos. -->
                 <section class="categoria">
-                    <h3>Tapas calientes</h3>
+                    <h3 id="tapas-calientes" tabindex="-1">Tapas calientes</h3>
                     <ul class="lista-platos">
                         <li class="plato">
                             <div>
@@ -243,7 +253,7 @@
                     </ul>
                 </section>
                 <section class="categoria">
-                    <h3>Hamburguesas</h3>
+                    <h3 id="hamburguesas" tabindex="-1">Hamburguesas</h3>
                     <p class="disponibilidad-categoria">Solo por la noche</p>
                     <ul class="lista-platos">
                         <li class="plato">
@@ -285,7 +295,7 @@
                 </section>
 
                 <section class="categoria">
-                    <h3>Bocadillos</h3>
+                    <h3 id="bocadillos" tabindex="-1">Bocadillos</h3>
                     <p class="disponibilidad-categoria">Solo por la noche</p>
                     <ul class="lista-platos">
                         <li class="plato">
@@ -320,7 +330,7 @@
                 </section>
 
                 <section class="categoria">
-                    <h3>Al plato</h3>
+                    <h3 id="al-plato" tabindex="-1">Al plato</h3>
                     <ul class="lista-platos">
                         <li class="plato">
                             <div>
@@ -363,7 +373,7 @@
                 </section>
 
                 <section class="categoria">
-                    <h3>Arroces</h3>
+                    <h3 id="arroces" tabindex="-1">Arroces</h3>
                     <p class="disponibilidad-categoria">Solo al mediodía</p>
                     <ul class="lista-platos">
                         <li class="plato">
@@ -437,7 +447,7 @@
                 </section>
 
                 <section class="categoria">
-                    <h3>Postres</h3>
+                    <h3 id="postres" tabindex="-1">Postres</h3>
                     <ul class="lista-platos">
                         <li class="plato">
                             <div>
@@ -872,7 +882,7 @@
             <section id="menu-diario" class="panel-carta" aria-labelledby="titulo-diario">
                 <h2 id="titulo-diario">Menú Diario</h2>
                 <!-- Primero qué incluye, después los precios por persona y las opciones dietéticas. -->
-                <p class="descripcion-carta">Incluye un primero y un segundo a elegir, una bebida y postre o café.Solo disponible entre semana.</p>
+                <p class="descripcion-carta">Incluye un primero y un segundo a elegir, una bebida y postre o café. Solo disponible entre semana.</p>
                 <div class="precios-menu">
                     <p class="precio-menu">13&nbsp;€ <span class="unidad-precio">p/p</span></p>
                 </div>
@@ -1043,10 +1053,10 @@
                 </div>
             </div>
 
-            <div class="contacto-pie">
+            <div class="visitanos-pie">
                 <h2>Visítanos</h2>
                 <address>Carrer Antonio Sorlí, 6<br>46134 Foios, Valencia</address>
-                <a class="llamada-pie" href="tel:+34611469134">Reservar por teléfono</a>
+                <a href="../ubicacion/index.html">Ver ubicación</a>
             </div>
 
             <nav class="navegacion-pie" aria-label="Navegación del pie">
@@ -1058,6 +1068,14 @@
                     <li><a href="https://www.instagram.com/rte.elmusicalfoios/">Instagram</a></li>
                 </ul>
             </nav>
+
+            <div class="contacto-pie">
+                <h2>Contacto</h2>
+                <ul>
+                    <li><a href="tel:+34611469134">Teléfono +34 611 469 134</a></li>
+                    <li><a href="https://wa.me/34611469134">WhatsApp</a></li>
+                </ul>
+            </div>
         </div>
         <p class="credito-pie">Diseño y desarrollo: <a href="https://github.com/CarlesMarti2003">Carles Martí</a> · <a href="mailto:carlespeke2003@gmail.com">Contacto profesional</a></p>
     </footer>

@@ -141,7 +141,14 @@ document.addEventListener('click', (evento) => {
 
 // Los cambios de fragmento, incluidos Atrás/Adelante, actualizan el panel.
 window.addEventListener('hashchange', () => {
+    const destino = document.getElementById(window.location.hash.slice(1));
+    // Al volver desde otra pestaña, el navegador intentó saltar a un título oculto.
+    const categoriaOculta = destino?.closest('.categoria') && destino.closest('[hidden]');
     seleccionarPanel(obtenerDestino());
+    if (categoriaOculta) {
+        destino.focus({ preventScroll: true });
+        destino.scrollIntoView();
+    }
     requestAnimationFrame(ajustarFocoDelDestino);
 });
 window.addEventListener('load', () => requestAnimationFrame(ajustarFocoDelDestino));
