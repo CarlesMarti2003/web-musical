@@ -688,6 +688,8 @@ h1 {
     padding: 24px;
     scroll-margin-top: calc(var(--alto-barra) + 16px);
 }
+/* Al seguir el enlace del pie, deja visibles el resumen y el texto bajo la cabecera. */
+#cookies { scroll-margin-top: calc(var(--alto-barra) + 3rem); }
 .preferencias-mapa h2 { margin-top: 0; }
 .preferencias-mapa a { color: var(--verde-oscuro); }
 .preferencias-mapa button {

@@ -40,9 +40,12 @@
                 <div class="preferencias-mapa" id="preferencias-mapa">
                     <h2>Mapa de Google Maps</h2>
                     <p>Si aceptas, Google recibirá tu dirección IP para mostrar el mapa y podrá usar cookies.</p>
-                    <details id="cookies"><summary>Política de cookies</summary>
-                        <p>El mapa de Google Maps es opcional. Puedes aceptarlo o rechazarlo en <a href="#preferencias-mapa">Preferencias del mapa</a>. Si lo aceptas, Google sirve el mapa y puede utilizar cookies o tecnologías similares según la configuración de tu navegador y de tu cuenta. Consulta la <a href="https://policies.google.com/technologies/cookies?hl=es">información de Google sobre fines y duración de sus cookies</a>.</p>
-                        <p>Cuando eliges, la web guarda únicamente tu preferencia del mapa en el almacenamiento de sesión de esa pestaña, con el nombre «preferencia-mapa». Puedes modificarla en el mismo lugar. Al rechazarlo, el mapa se retira y deja de cargarse. Para borrar datos que Google ya haya guardado, utiliza los ajustes de privacidad de tu navegador. La dirección, los horarios y el enlace «Cómo llegar» siguen disponibles con cualquiera de las dos opciones.</p>
+                    <details>
+                        <summary>Política de cookies</summary>
+                        <div id="cookies" tabindex="-1">
+                            <p>El mapa está desactivado hasta que lo aceptas. Al activarlo, tu navegador se conecta con Google para obtener el mapa, la información de lugares y las fuentes. Google recibe tu dirección IP y otros datos técnicos. En nuestra prueba con una sesión limpia de Edge, el mapa se mostró sin instalar cookies. El comportamiento puede variar según tu navegador y tu cuenta. Consulta la <a href="https://policies.google.com/technologies/cookies?hl=es">información sobre cookies de Google</a>.</p>
+                            <p>Al aceptar o rechazar, la web recuerda tu elección en el almacenamiento de sesión de esta pestaña bajo el nombre «preferencia-mapa». Puedes cambiarla en <a href="#preferencias-mapa">Preferencias del mapa</a>. Si rechazas el mapa después de activarlo, se retira y permanece desactivado al recargar. «Cómo llegar» sigue disponible.</p>
+                        </div>
                     </details>
                     <div id="opciones-mapa" hidden>
                         <button type="button" id="aceptar-mapa">Aceptar mapa</button>
