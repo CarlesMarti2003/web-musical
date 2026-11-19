@@ -7,6 +7,7 @@
     <meta name="description" content="Encuentra el restaurante El Musical en Carrer Antonio Sorlí, 6, Foios. Consulta el mapa y cómo llegar.">
 
     <link rel="stylesheet" href="../styles.css">
+    <script src="mapa.js" defer></script>
     <script src="../navegacion.js" defer></script>
 </head>
 
@@ -21,7 +22,7 @@
                 <ul>
                     <li><a href="../carta/index.html#carta">Carta</a></li>
                     <li><a href="index.html" aria-current="page">Ubicación y horarios</a></li>
-                    <li><a class="boton-reserva" href="tel:+34611469134">Reservar por teléfono</a></li>
+                    <li><a class="boton-reserva" href="tel:+34678543723">Reservar por teléfono</a></li>
                 </ul>
             </nav>
         </div>
@@ -36,17 +37,31 @@
 
         <div class="encuentranos">
             <section class="tarjeta-mapa" aria-label="Mapa del restaurante">
-                <!-- Mapa interactivo de Google Maps. La búsqueda incluye el nombre
-                     y la dirección completa para identificar el local. -->
-                <iframe
-                    title="Ubicación del Restaurante El Musical en Foios"
-                    src="https://www.google.com/maps?q=Restaurante%20El%20Musical%2C%20Carrer%20Antonio%20Sorl%C3%AD%206%2C%2046134%20Foios%2C%20Valencia&amp;z=16&amp;hl=es&amp;output=embed"
-                    width="800"
-                    height="520"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    allowfullscreen>
-                </iframe>
+                <div class="preferencias-mapa" id="preferencias-mapa">
+                    <h2>Mapa de Google Maps</h2>
+                    <p>Si aceptas, Google recibirá tu dirección IP para mostrar el mapa y podrá usar cookies.</p>
+                    <details id="cookies"><summary>Política de cookies</summary>
+                        <p>El mapa de Google Maps es opcional. Puedes aceptarlo o rechazarlo en <a href="#preferencias-mapa">Preferencias del mapa</a>. Si lo aceptas, Google sirve el mapa y puede utilizar cookies o tecnologías similares según la configuración de tu navegador y de tu cuenta. Consulta la <a href="https://policies.google.com/technologies/cookies?hl=es">información de Google sobre fines y duración de sus cookies</a>.</p>
+                        <p>Cuando eliges, la web guarda únicamente tu preferencia del mapa en el almacenamiento de sesión de esa pestaña, con el nombre «preferencia-mapa». Puedes modificarla en el mismo lugar. Al rechazarlo, el mapa se retira y deja de cargarse. Para borrar datos que Google ya haya guardado, utiliza los ajustes de privacidad de tu navegador. La dirección, los horarios y el enlace «Cómo llegar» siguen disponibles con cualquiera de las dos opciones.</p>
+                    </details>
+                    <div id="opciones-mapa" hidden>
+                        <button type="button" id="aceptar-mapa">Aceptar mapa</button>
+                        <button type="button" id="rechazar-mapa">Rechazar mapa</button>
+                    </div>
+                    <p id="estado-mapa" role="status">Mapa desactivado.</p>
+                    <noscript>Para ver la ruta, utiliza «Cómo llegar».</noscript>
+                </div>
+                <template id="plantilla-mapa">
+                    <iframe
+                        title="Ubicación del Restaurante El Musical en Foios"
+                        src="https://www.google.com/maps?q=Restaurante%20El%20Musical%2C%20Carrer%20Antonio%20Sorl%C3%AD%206%2C%2046134%20Foios%2C%20Valencia&amp;z=16&amp;hl=es&amp;output=embed"
+                        width="800"
+                        height="520"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
+                </template>
             </section>
 
             <section class="datos-ubicacion" aria-labelledby="nombre-local">
@@ -144,11 +159,14 @@
             <div class="contacto-pie">
                 <h2>Contacto</h2>
                 <ul>
-                    <li><a href="tel:+34611469134">Teléfono +34 611 469 134</a></li>
-                    <li><a href="https://wa.me/34611469134">WhatsApp</a></li>
+                    <li><a href="tel:+34678543723">Teléfono +34 678 543 723</a></li>
+                    <li><a href="https://wa.me/34678543723">WhatsApp</a></li>
                 </ul>
             </div>
         </div>
+        <nav class="enlaces-legales" aria-label="Información legal">
+            <a href="#cookies">Política de cookies</a>
+        </nav>
         <p class="credito-pie">Diseño y desarrollo: <a href="https://github.com/CarlesMarti2003">Carles Martí</a> · <a href="mailto:carlespeke2003@gmail.com">Contacto profesional</a></p>
     </footer>
 </body>
